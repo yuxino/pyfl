@@ -1,0 +1,26 @@
+{
+  "name": "pyfl",
+  "version": "1.0.0",
+  "description": "获取拼音首字母",
+  "main": "/src/index.js",
+  "scripts": {
+    "test": "ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nbsaw/pyfl.git"
+  },
+  "keywords": [
+    "pinyin",
+    "拼音"
+  ],
+  "author": "Nbsaw",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Nbsaw/pyfl/issues"
+  },
+  "homepage": "https://github.com/Nbsaw/pyfl#readme",
+  "devDependencies": {
+    "ava": "^0.23.0"
+  }
+}
