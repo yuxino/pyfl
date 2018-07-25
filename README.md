@@ -10,6 +10,8 @@
 
 ``` shell
 npm install pyfl --save
+# 如果你更偏好yarn
+yarn add
 ```
 
 ## Usage
@@ -27,6 +29,8 @@ pyfl('Pure'); // Pure
 
 pyfl('Made by ❤'); // Made by ❤
 ```
+
+![hhh](http://ordlnvdfx.bkt.clouddn.com/pyfl.png)
 
 ## Author
 
