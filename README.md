@@ -1,12 +1,10 @@
 # pyfl
 
-一个~~轻~~量级(~20kb)的Web端获取拼音首字母的库.大部分字都可以测试通过..
+一个~~轻~~量级(~20kb)的Web端获取拼音首缩写.大部分字都可以测试通过
 
 ## Preface
 
 在做某个项目的时候要用到了,现在把这个库开源出来。~~灵感~~魔改自[pinyinjs](https://github.com/sxei/pinyinjs)。
-
-![hhh](http://ordlnvdfx.bkt.clouddn.com/pyfl.png)
 
 ## Install
 
