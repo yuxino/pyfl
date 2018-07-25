@@ -30,8 +30,6 @@ pyfl('Pure'); // Pure
 pyfl('Made by ❤'); // Made by ❤
 ```
 
-![hhh](http://ordlnvdfx.bkt.clouddn.com/pyfl.png)
-
 ## Author
 
 **pyfl** © NBSAW, Released under the [MIT](https://github.com/Nbsaw/pyfl/blob/master/LICENSE) License.
