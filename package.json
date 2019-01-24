@@ -1,10 +1,12 @@
 {
   "name": "pyfl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "获取拼音首字母",
-  "main": "/src/index.js",
+  "main": "/dist/index.js",
   "scripts": {
-    "test": "ava"
+    "build": "webpack",
+    "test": "ava",
+    "prepublish": "yarn build"
   },
   "repository": {
     "type": "git",
@@ -20,7 +22,22 @@
     "url": "https://github.com/Nbsaw/pyfl/issues"
   },
   "homepage": "https://github.com/Nbsaw/pyfl#readme",
+  "ava": {
+    "compileEnhancements": false,
+    "extensions": [
+      "ts"
+    ],
+    "require": [
+      "ts-node/register/transpile-only"
+    ]
+  },
   "devDependencies": {
-    "ava": "^0.23.0"
+    "@types/node": "^10.12.18",
+    "ava": "^1.1.0",
+    "ts-loader": "^5.3.3",
+    "ts-node": "^8.0.1",
+    "typescript": "^3.2.4",
+    "webpack": "^4.29.0",
+    "webpack-cli": "^3.2.1"
   }
 }

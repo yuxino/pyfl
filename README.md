@@ -1,6 +1,6 @@
 # pyfl
 
-一个~~轻~~量级(~20kb)的Web端获取拼音首缩写.大部分字都可以测试通过
+一个并不轻量级(~20kb)的 Web 端获取拼音首缩写.大部分字都可以测试通过
 
 ## Preface
 
@@ -8,7 +8,7 @@
 
 ## Install
 
-``` shell
+```shell
 npm install pyfl --save
 # 如果你更偏好yarn
 yarn add
@@ -16,7 +16,7 @@ yarn add
 
 ## Usage
 
-``` js
+```js
 import pyfl from 'pyfl';
 
 pyfl('喵'); // M
