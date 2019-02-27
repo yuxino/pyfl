@@ -30,6 +30,10 @@ pyfl('Pure'); // Pure
 pyfl('Made by ❤'); // Made by ❤
 ```
 
+## Other
+
+如果这个库对你有帮助的话，希望能在 github 上给个 star。
+
 ## Author
 
 **pyfl** © NBSAW, Released under the [MIT](https://github.com/Nbsaw/pyfl/blob/master/LICENSE) License.

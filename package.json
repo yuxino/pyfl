@@ -1,6 +1,6 @@
 {
   "name": "pyfl",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "获取拼音首字母",
   "main": "/dist/pyfl.min.js",
   "scripts": {
