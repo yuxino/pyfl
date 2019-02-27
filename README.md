@@ -11,7 +11,7 @@
 ```shell
 npm install pyfl --save
 # 如果你更偏好yarn
-yarn add
+yarn add pyfl
 ```
 
 ## Usage
