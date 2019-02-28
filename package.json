@@ -1,8 +1,8 @@
 {
   "name": "pyfl",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "获取拼音首字母",
-  "main": "/dist/pyfl.min.js",
+  "main": "./dist/pyfl.min.js",
   "scripts": {
     "build": "webpack",
     "test": "ava",

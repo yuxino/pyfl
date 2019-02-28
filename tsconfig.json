@@ -1,5 +1,13 @@
 {
   "compilerOptions": {
-    "sourceMap": true
-  }
+    "target": "esnext",
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "sourceMap": true,
+    // "declaration": true,
+    "outDir": "./dist",
+    "removeComments": false,
+    "noUnusedLocals": true
+  },
+  "exclude": ["node_modules", "**/*.spec.ts"]
 }

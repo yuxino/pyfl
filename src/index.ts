@@ -1,6 +1,6 @@
 ﻿"use strict";
 
-const firstletter = require("./dict/firstletter");
+import firstletter from "./dict/firstletter";
 
 export default function(str: string) {
   try {
@@ -15,6 +15,7 @@ export default function(str: string) {
     }
     return result.join("");
   } catch (e) {
+    console.error(firstletter);
     return str;
   }
 }
