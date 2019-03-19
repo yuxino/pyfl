@@ -3,6 +3,7 @@
   "version": "1.0.5",
   "description": "获取拼音首字母",
   "main": "./dist/pyfl.min.js",
+  "types": "./types/index.d.ts",
   "scripts": {
     "build": "webpack",
     "test": "ava",
@@ -14,7 +15,9 @@
   },
   "keywords": [
     "pinyin",
-    "拼音"
+    "拼音",
+    "首拼",
+    "中文首拼"
   ],
   "author": "Nbsaw",
   "license": "MIT",

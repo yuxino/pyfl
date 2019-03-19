@@ -16,6 +16,8 @@ yarn add pyfl
 
 ## Usage
 
+只支持传入字符串参数。如果该字符串不存在对应的拼音会反回原字符。
+
 ```js
 import pyfl from 'pyfl';
 
