@@ -60,3 +60,5 @@ typings/
 ## typescript types declaration files
 types
 
+## we don't need to upload dist file in repo ..
+dist
