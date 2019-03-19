@@ -4,7 +4,8 @@
     "noImplicitAny": true,
     "strictNullChecks": true,
     "sourceMap": true,
-    // "declaration": true,
+    "declaration": true,
+    "declarationDir": "types",
     "outDir": "./dist",
     "removeComments": false,
     "noUnusedLocals": true
