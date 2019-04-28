@@ -32,6 +32,13 @@ pyfl('Pure'); // Pure
 pyfl('Made by ❤'); // Made by ❤
 ```
 
+## FAQ
+
+- 如何在直接在 Node 端引用
+  ```js
+  const pyfl = require("pyfl").default;
+  ```
+
 ## Other
 
 如果这个库对你有帮助的话，希望能在 github 上给个 star。

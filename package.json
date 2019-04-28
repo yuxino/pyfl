@@ -1,6 +1,6 @@
 {
   "name": "pyfl",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "获取拼音首字母",
   "main": "./dist/pyfl.min.js",
   "types": "./types/index.d.ts",
@@ -9,6 +9,9 @@
     "test": "ava",
     "prepublish": "yarn build"
   },
+  "files": [
+    "dist/**/*"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Nbsaw/pyfl.git"
