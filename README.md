@@ -37,11 +37,13 @@ pyfl('Made by ❤'); // Made by ❤
 
 ## FAQ
 
-- 如何在直接在 Node 端引用
+- 如何在直接在 Node 端引用 ?
 
   ```js
   const pyfl = require("pyfl").default;
   ```
+- 有代码示例怎么用在项目里面吗 ?
+  有,请看这一个[链接](https://github.com/Nbsaw/WeChat)
 
 ## OTHER
 
