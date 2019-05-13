@@ -1,20 +1,23 @@
-# pyfl
+# PYFL
+
+![https://circleci.com/gh/Nbsaw/pyfl/tree/master](https://flat.badgen.net/circleci/github/Nbsaw/pyfl)
+![https://www.npmjs.com/package/pyfl](https://flat.badgen.net/npm/v/pyfl)
+![https://www.npmjs.com/package/pyfl](https://flat.badgen.net/npm/dm/pyfl)
+![https://www.npmjs.com/package/pyfl](https://flat.badgen.net/npm/dependents/pyfl)
 
 一个并不轻量级(~20kb)的 Web 端获取拼音首缩写.大部分字都可以测试通过
 
-## Preface
+## PREFACE
 
-在做某个项目的时候要用到了,现在把这个库开源出来。~~灵感~~魔改自[pinyinjs](https://github.com/sxei/pinyinjs)。
+在做某个项目的时候要用到了,现在把这个库开源出来。魔改自[pinyinjs](https://github.com/sxei/pinyinjs)。
 
-## Install
+## INSTALL
 
 ```shell
-npm install pyfl --save
-# 如果你更偏好yarn
 yarn add pyfl
 ```
 
-## Usage
+## USAGE
 
 只支持传入字符串参数。如果该字符串不存在对应的拼音会反回原字符。
 
@@ -40,10 +43,10 @@ pyfl('Made by ❤'); // Made by ❤
   const pyfl = require("pyfl").default;
   ```
 
-## Other
+## OTHER
 
 如果这个库对你有帮助的话，希望能在 github 上给个 star。
 
-## Author
+## License
 
-**pyfl** © NBSAW, Released under the [MIT](https://github.com/Nbsaw/pyfl/blob/master/LICENSE) License.
+MIT © [NBSAW](https://github.com/Nbsaw/pyfl/blob/master/LICENSE)
