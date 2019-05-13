@@ -9,7 +9,7 @@
 
 ## PREFACE
 
-在做某个项目的时候要用到了,现在把这个库开源出来。魔改自[pinyinjs](https://github.com/sxei/pinyinjs)。
+在做[某个项目](https://github.com/Nbsaw/WeChat)的时候要用到了,现在把这个库开源出来。魔改自[pinyinjs](https://github.com/sxei/pinyinjs)。
 
 ## INSTALL
 
@@ -42,8 +42,6 @@ pyfl('Made by ❤'); // Made by ❤
   ```js
   const pyfl = require("pyfl").default;
   ```
-- 有代码示例怎么用在项目里面吗 ?
-  有,请看这一个[链接](https://github.com/Nbsaw/WeChat)
 
 ## OTHER
 
