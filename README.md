@@ -1,6 +1,6 @@
 # PYFL
 
-![https://circleci.com/gh/Nbsaw/pyfl/tree/master](https://flat.badgen.net/circleci/github/Nbsaw/pyfl)
+![https://circleci.com/gh/yuxino/pyfl/tree/master](https://flat.badgen.net/circleci/github/yuxino/pyfl)
 ![https://www.npmjs.com/package/pyfl](https://flat.badgen.net/npm/v/pyfl)
 ![https://www.npmjs.com/package/pyfl](https://flat.badgen.net/npm/dm/pyfl)
 ![https://www.npmjs.com/package/pyfl](https://flat.badgen.net/npm/dependents/pyfl)
