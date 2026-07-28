@@ -6,15 +6,16 @@
   "types": "./types/index.d.ts",
   "scripts": {
     "build": "webpack",
-    "test": "ava",
-    "prepublish": "yarn build"
+    "test": "tsx --test test/**/*.spec.ts",
+    "prepublishOnly": "npm run test && npm run build"
   },
   "files": [
-    "dist/**/*"
+    "dist/**/*",
+    "types/index.d.ts"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nbsaw/pyfl.git"
+    "url": "git+https://github.com/yuxino/pyfl.git"
   },
   "keywords": [
     "pinyin",
@@ -22,28 +23,18 @@
     "首拼",
     "中文首拼"
   ],
-  "author": "Nbsaw",
+  "author": "yuxino",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/Nbsaw/pyfl/issues"
+    "url": "https://github.com/yuxino/pyfl/issues"
   },
-  "homepage": "https://github.com/Nbsaw/pyfl#readme",
-  "ava": {
-    "compileEnhancements": false,
-    "extensions": [
-      "ts"
-    ],
-    "require": [
-      "ts-node/register/transpile-only"
-    ]
-  },
+  "homepage": "https://github.com/yuxino/pyfl#readme",
   "devDependencies": {
-    "@types/node": "^10.12.18",
-    "ava": "^1.1.0",
-    "ts-loader": "^5.3.3",
-    "ts-node": "^8.0.1",
-    "typescript": "^3.2.4",
-    "webpack": "^4.29.0",
-    "webpack-cli": "^3.2.1"
+    "@types/node": "^26.1.2",
+    "ts-loader": "^9.6.2",
+    "tsx": "^4.23.1",
+    "typescript": "^5.9.3",
+    "webpack": "^5.109.1",
+    "webpack-cli": "^7.2.1"
   }
 }

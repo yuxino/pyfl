@@ -1,27 +1,30 @@
-﻿"use strict";
-
-import test from "ava";
+﻿import assert from "node:assert/strict";
+import test from "node:test";
 import pyfl from "../src/index";
 
-test("should return M", t => t.is(pyfl("喵"), "M"));
+test("converts a Chinese character", () => {
+  assert.equal(pyfl("喵"), "M");
+});
 
-test("should return HXMGSZYYZTJZDHHHHHHH", t =>
-  t.is(
+test("converts a Chinese sentence", () => {
+  assert.equal(
     pyfl("好笑吗跟傻子一样整天就知道哈哈哈哈哈哈哈"),
     "HXMGSZYYZTJZDHHHHHHH"
-  ));
+  );
+});
 
-test("should return TBFZX", t => t.is(pyfl("罤夶繙着洗"), "TBFZX"));
+test("converts uncommon supported characters", () => {
+  assert.equal(pyfl("罤夶繙着洗"), "TBFZX");
+});
 
-test("should return Pure", t => t.is(pyfl("Pure"), "Pure"));
+test("preserves non-Chinese text", () => {
+  assert.equal(pyfl("Pure"), "Pure");
+  assert.equal(pyfl("Made by ❤"), "Made by ❤");
+  assert.equal(pyfl("أشتون"), "أشتون");
+});
 
-test("should return Made by ❤", t => t.is(pyfl("Made by ❤"), "Made by ❤"));
-
-// Will return origin string
-test("أشتون", t => t.is(pyfl("أشتون"), "أشتون"));
-
-test("should return 123456", t => t.is(pyfl(123456), "123456"));
-
-test("should return undefined", t => t.is(pyfl(undefined), "undefined"));
-
-test("should return null", t => t.is(pyfl(null), "null"));
+test("stringifies non-string input", () => {
+  assert.equal(pyfl(123456), "123456");
+  assert.equal(pyfl(undefined), "undefined");
+  assert.equal(pyfl(null), "null");
+});

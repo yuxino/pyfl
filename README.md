@@ -12,7 +12,7 @@
 
 pyfl 是一个面向浏览器的拼音首字母转换库。传入一段文本，它会逐字转换其中的常用汉字，并原样保留英文、数字、空格和符号。
 
-适合用来生成搜索索引、通讯录首字母和中文标题缩写。压缩后的包体积约为 20 KB。
+适合用来生成搜索索引、通讯录首字母和中文标题缩写。它不做分词、多音字推断或完整拼音转换，只专注于快速得到首字母。
 
 ## 安装
 
@@ -69,8 +69,11 @@ yarn build
 
 pyfl 最初为 [WeChat](https://github.com/Nbsaw/WeChat) 项目而写，字典实现改编自 [pinyinjs](https://github.com/sxei/pinyinjs)。
 
-## 参与 pyfl
+## 说明
 
-欢迎提交 [Issue](https://github.com/yuxino/pyfl/issues) 和 Pull Request。如果这个库对你有帮助，也欢迎点一个 Star。
+- 转换基于内置字典，不会发起网络请求
+- 多音字按字典中的固定读音处理，不结合上下文推断
+- 当前字典覆盖 Unicode `U+4E00` 至 `U+9FA5` 范围内的汉字；范围外字符保持原样
+- 欢迎通过 [Issue](https://github.com/yuxino/pyfl/issues) 补充缺字或报告错误读音
 
-[MIT](LICENSE) © [NBSAW](https://github.com/Nbsaw)
+[MIT](LICENSE) © [yuxino](https://github.com/yuxino)
