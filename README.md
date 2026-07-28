@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="docs/pyfl-icon.svg" width="88" alt="pyfl">
+  <img src="docs/pyfl-avatar.png" width="112" alt="pyfl">
   <h1>pyfl</h1>
   <p>把中文转换成拼音首字母</p>
   <p>
