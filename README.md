@@ -1,52 +1,76 @@
-# PYFL
+<div align="center">
+  <img src="docs/pyfl-icon.svg" width="88" alt="pyfl">
+  <h1>pyfl</h1>
+  <p>把中文转换成拼音首字母</p>
+  <p>
+    <a href="https://www.npmjs.com/package/pyfl"><strong>在 npm 查看</strong></a>
+    · <a href="https://github.com/yuxino/pyfl/issues">反馈问题</a>
+  </p>
+</div>
 
-![https://circleci.com/gh/yuxino/pyfl/tree/master](https://flat.badgen.net/circleci/github/yuxino/pyfl)
-![https://www.npmjs.com/package/pyfl](https://flat.badgen.net/npm/v/pyfl)
-![https://www.npmjs.com/package/pyfl](https://flat.badgen.net/npm/dm/pyfl)
-![https://www.npmjs.com/package/pyfl](https://flat.badgen.net/npm/dependents/pyfl)
+<br>
 
-一个并不轻量级(~20kb)的 Web 端获取拼音首缩写.大部分字都可以测试通过
+pyfl 是一个面向浏览器的拼音首字母转换库。传入一段文本，它会逐字转换其中的常用汉字，并原样保留英文、数字、空格和符号。
 
-## PREFACE
+适合用来生成搜索索引、通讯录首字母和中文标题缩写。压缩后的包体积约为 20 KB。
 
-在做[某个项目](https://github.com/Nbsaw/WeChat)的时候要用到了,现在把这个库开源出来。魔改自[pinyinjs](https://github.com/sxei/pinyinjs)。
+## 安装
 
-## INSTALL
-
-```shell
+```bash
 yarn add pyfl
 ```
 
-## USAGE
+也可以使用 npm：
 
-只支持传入字符串参数。如果该字符串不存在对应的拼音会反回原字符。
-
-```js
-import pyfl from 'pyfl';
-
-pyfl('喵'); // M
-
-pyfl('好笑吗跟傻子一样整天就知道哈哈哈哈哈哈哈')); // HXMGSZYYZTJZDHHHHHHH
-
-pyfl('罤夶繙着洗'); // TBFZX
-
-pyfl('Pure'); // Pure
-
-pyfl('Made by ❤'); // Made by ❤
+```bash
+npm install pyfl
 ```
 
-## FAQ
+## 使用
 
-- 如何在直接在 Node 端引用 ?
+```js
+import pyfl from "pyfl";
 
-  ```js
-  const pyfl = require("pyfl").default;
-  ```
+pyfl("喵");                    // "M"
+pyfl("你好，世界");             // "NH，SJ"
+pyfl("Made by ❤");            // "Made by ❤"
+pyfl("好笑吗跟傻子一样整天就知道哈哈哈哈哈哈哈");
+// "HXMGSZYYZTJZDHHHHHHH"
+```
 
-## OTHER
+CommonJS 项目需要读取默认导出：
 
-如果这个库对你有帮助的话，希望能在 github 上给个 star。
+```js
+const pyfl = require("pyfl").default;
+```
 
-## License
+## 转换规则
 
-MIT © [NBSAW](https://github.com/Nbsaw/pyfl/blob/master/LICENSE)
+- 常用汉字转换为大写拼音首字母
+- 英文、数字、空格和符号保持不变
+- 空字符串或只包含半角空格的字符串返回空字符串
+- 非字符串输入会先通过模板字符串转换为文本
+
+```js
+pyfl(123456);    // "123456"
+pyfl(undefined); // "undefined"
+pyfl(null);      // "null"
+```
+
+## 从源码构建
+
+```bash
+git clone https://github.com/yuxino/pyfl.git
+cd pyfl
+yarn
+yarn test
+yarn build
+```
+
+pyfl 最初为 [WeChat](https://github.com/Nbsaw/WeChat) 项目而写，字典实现改编自 [pinyinjs](https://github.com/sxei/pinyinjs)。
+
+## 参与 pyfl
+
+欢迎提交 [Issue](https://github.com/yuxino/pyfl/issues) 和 Pull Request。如果这个库对你有帮助，也欢迎点一个 Star。
+
+[MIT](LICENSE) © [NBSAW](https://github.com/Nbsaw)

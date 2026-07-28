@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" role="img" aria-labelledby="title description">
+  <title id="title">pyfl icon</title>
+  <desc id="description">A Chinese character transformed into its pinyin first letter.</desc>
+  <defs>
+    <linearGradient id="background" x1="18" y1="10" x2="110" y2="118" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#7357FF"/>
+      <stop offset="1" stop-color="#4A32C3"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="5" stdDeviation="5" flood-color="#24176D" flood-opacity=".28"/>
+    </filter>
+  </defs>
+  <rect width="128" height="128" rx="29" fill="url(#background)"/>
+  <circle cx="102" cy="25" r="18" fill="#9B89FF" opacity=".32"/>
+  <g filter="url(#shadow)">
+    <rect x="19" y="27" width="49" height="61" rx="13" fill="#E5E0FF" transform="rotate(-7 43.5 57.5)"/>
+    <text x="43" y="67" fill="#4A32C3" font-family="PingFang SC, Noto Sans CJK SC, sans-serif" font-size="30" font-weight="700" text-anchor="middle">拼</text>
+    <path d="M59 67h13l-4-5m4 5-4 5" fill="none" stroke="#BFB3FF" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"/>
+    <rect x="65" y="40" width="44" height="61" rx="13" fill="#fff"/>
+    <text x="87" y="82" fill="#4A32C3" font-family="Inter, ui-sans-serif, sans-serif" font-size="37" font-weight="800" text-anchor="middle">P</text>
+  </g>
+</svg>
