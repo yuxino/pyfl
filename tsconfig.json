@@ -4,6 +4,8 @@
     "module": "ESNext",
     "moduleResolution": "node",
     "strict": true,
+    "resolveJsonModule": true,
+    "esModuleInterop": true,
     "declaration": true,
     "declarationDir": "types",
     "outDir": "./dist",

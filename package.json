@@ -1,6 +1,6 @@
 {
   "name": "pyfl",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "获取拼音首字母",
   "main": "./dist/pyfl.min.js",
   "types": "./types/index.d.ts",
@@ -21,7 +21,18 @@
     "types/index.d.ts",
     "types/index.d.mts",
     "THIRD_PARTY_NOTICES",
-    "CHANGELOG.md"
+    "CHANGELOG.md",
+    "dist/modern/*.cjs",
+    "dist/modern/*.mjs",
+    "types/modern/common*.d.ts",
+    "types/modern/common*.d.mts",
+    "types/modern/full*.d.ts",
+    "types/modern/full*.d.mts",
+    "types/modern/runtime.d.ts",
+    "types/modern/runtime.d.mts",
+    "docs/modern.md",
+    "README_zh-CN.md",
+    "README_en.md"
   ],
   "repository": {
     "type": "git",
@@ -62,7 +73,77 @@
     "./dist/pyfl.min": "./dist/pyfl.min.js",
     "./dist/*": "./dist/*",
     "./types/*": "./types/*",
-    "./package.json": "./package.json"
+    "./package.json": "./package.json",
+    "./modern": {
+      "import": {
+        "types": "./types/modern/common-phrases.d.mts",
+        "default": "./dist/modern/common-phrases.mjs"
+      },
+      "require": {
+        "types": "./types/modern/common-phrases.d.ts",
+        "default": "./dist/modern/common-phrases.cjs"
+      }
+    },
+    "./modern/common": {
+      "import": {
+        "types": "./types/modern/common.d.mts",
+        "default": "./dist/modern/common.mjs"
+      },
+      "require": {
+        "types": "./types/modern/common.d.ts",
+        "default": "./dist/modern/common.cjs"
+      }
+    },
+    "./modern/common-phrases": {
+      "import": {
+        "types": "./types/modern/common-phrases.d.mts",
+        "default": "./dist/modern/common-phrases.mjs"
+      },
+      "require": {
+        "types": "./types/modern/common-phrases.d.ts",
+        "default": "./dist/modern/common-phrases.cjs"
+      }
+    },
+    "./modern/full": {
+      "import": {
+        "types": "./types/modern/full.d.mts",
+        "default": "./dist/modern/full.mjs"
+      },
+      "require": {
+        "types": "./types/modern/full.d.ts",
+        "default": "./dist/modern/full.cjs"
+      }
+    },
+    "./modern/full-phrases": {
+      "import": {
+        "types": "./types/modern/full-phrases.d.mts",
+        "default": "./dist/modern/full-phrases.mjs"
+      },
+      "require": {
+        "types": "./types/modern/full-phrases.d.ts",
+        "default": "./dist/modern/full-phrases.cjs"
+      }
+    },
+    "./modern/common-search": {
+      "import": {
+        "types": "./types/modern/common-search.d.mts",
+        "default": "./dist/modern/common-search.mjs"
+      },
+      "require": {
+        "types": "./types/modern/common-search.d.ts",
+        "default": "./dist/modern/common-search.cjs"
+      }
+    },
+    "./modern/full-search": {
+      "import": {
+        "types": "./types/modern/full-search.d.mts",
+        "default": "./dist/modern/full-search.mjs"
+      },
+      "require": {
+        "types": "./types/modern/full-search.d.ts",
+        "default": "./dist/modern/full-search.cjs"
+      }
+    }
   },
   "sideEffects": false
 }

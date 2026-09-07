@@ -1,13 +1,15 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import fixtures from "../fixtures/phrases.json";
-import { ranges } from "../data/modern-common.json";
+import { ranges } from "../../../src/modern/data/common.json";
+import productionRules from "../../../src/modern/data/phrases.json";
 import commonPhrases from "../common-phrases";
 import fullPhrases from "../full-phrases";
 import { createInitials, type Range } from "../runtime";
 
 test("curated phrases and surrounding text work with both inventories", () => {
   assert.equal(fixtures.rules.length, 36);
+  assert.deepEqual(productionRules, fixtures.rules);
   assert.equal(new Set(fixtures.rules.map(rule => rule.word)).size, fixtures.rules.length);
   for (const { id, input, expected, notes } of fixtures.cases) {
     assert.equal(commonPhrases(input), expected, `common ${id}: ${notes}`);

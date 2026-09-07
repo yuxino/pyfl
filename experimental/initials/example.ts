@@ -1,7 +1,7 @@
 import legacy from "../../src/index";
 import modern from "./common-phrases";
 import match from "./common-search";
-import { ranges } from "./data/modern-common.json";
+import { ranges } from "../../src/modern/data/common.json";
 import { rules } from "./fixtures/phrases.json";
 import { createInitials, type Range } from "./runtime";
 

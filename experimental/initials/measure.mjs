@@ -9,8 +9,8 @@ const outputDirectory = fileURLToPath(new URL("./generated/", import.meta.url));
 await mkdir(outputDirectory, { recursive: true });
 assert.equal(version, "0.28.2", "Use npm ci --prefix benchmark for the pinned measurement tool");
 const readJson = async name => JSON.parse(await readFile(new URL(name, import.meta.url), "utf8"));
-const common = await readJson("./data/modern-common.json");
-const full = await readJson("./data/modern-full.json");
+const common = await readJson("../../src/modern/data/common.json");
+const full = await readJson("../../src/modern/data/full.json");
 const fixtures = await readJson("./fixtures/phrases.json");
 const definitions = [
   ["legacy", "../../src/index.ts", 20902, "conversion"],

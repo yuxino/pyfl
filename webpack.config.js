@@ -11,6 +11,10 @@ const shared = {
   }
 };
 
+const modernEntries = Object.fromEntries([
+  "common", "common-phrases", "full", "full-phrases", "common-search", "full-search"
+].map(name => [name, `./src/modern/${name}.ts`]));
+
 module.exports = [
   {
     ...shared,
@@ -30,6 +34,27 @@ module.exports = [
     output: {
       path: path.resolve(__dirname, "dist"),
       filename: "index.mjs",
+      library: { type: "module" }
+    }
+  },
+  {
+    ...shared,
+    name: "modern-cjs",
+    entry: modernEntries,
+    output: {
+      path: path.resolve(__dirname, "dist/modern"),
+      filename: "[name].cjs",
+      library: { type: "commonjs2" }
+    }
+  },
+  {
+    ...shared,
+    name: "modern-esm",
+    entry: modernEntries,
+    experiments: { outputModule: true },
+    output: {
+      path: path.resolve(__dirname, "dist/modern"),
+      filename: "[name].mjs",
       library: { type: "module" }
     }
   }

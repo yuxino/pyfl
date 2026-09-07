@@ -2,6 +2,18 @@
 
 2026-09-07 品牌升级采用白色短发的小魔女近景：紫眼、侧辫与黑蝴蝶结、黑帽菱形带、紫晶及「拼 / P」字牌。突出脸部与自然表情，保持黑白与既有淡紫细节。
 
-`docs/pyfl-avatar.png` 用于 README；与[官网](https://pyfl.yuxino.cn)分享图使用同一幅 1254 × 1254 RGB 插画。图像由内置 imagegen 生成并经仅发型编辑确认，原图 SHA-256 `1dfffa1cafdd23042f2f262a1983a7e8a367a27e200ac9c6fa1ebcb2bea9875a`，1,485,055 B。网页首屏另提供 WebP 压缩版本。
+原始品牌插画保留为 `docs/pyfl-avatar.png`，与[官网](https://pyfl.yuxino.cn)分享图使用同一幅 1254 × 1254 RGB 插画。图像由内置 imagegen 生成并经仅发型编辑确认，原图 SHA-256 `1dfffa1cafdd23042f2f262a1983a7e8a367a27e200ac9c6fa1ebcb2bea9875a`，1,485,055 B。网页首屏继续使用该插画的 WebP 压缩版本。
 
-最终为短发；长发稿没有发布。原头像可从 Git 历史恢复。品牌图片和本文不在 npm 包 files 列表中，转换实现、包入口、版本和待发布 tarball 不因本轮视觉更新改变。完整生成 prompt 与素材压缩记录位于官网仓库 `docs/character-asset.md`。
+最终为短发；长发稿没有发布。原头像可从 Git 历史恢复。品牌图片和本文不在 npm 包 files 列表中。完整生成 prompt 与素材压缩记录位于官网仓库 `docs/character-asset.md`。
+
+## 2026-09-08：中文优先与圆形标志
+
+项目面向中文用户，默认 `README.md` 使用简体中文，英文说明保留在 `README_en.md`。当前正式标志为 [`docs/pyfl-logo.svg`](pyfl-logo.svg)，用于 README 的品牌展示；官网 `public/favicon.svg` 使用相同字节。旧的紫色渐变字牌图标 `docs/pyfl-icon.svg` 不代表当前角色标志。
+
+圆形标志直接内嵌官网已有的 `public/pyfl-brand.webp`，以 SVG `clipPath` 作圆形展示，并加上白色圆内背景和细浅灰边框。它不重绘角色、不修改源图像素，也不换成长发。原始头像、官网首屏和分享图继续保留，圆形标志只是同一短发形象的新展示方式。
+
+- SVG 画布：512 × 512；文件 203,384 B，SHA-256 `71ea42b547d5eca1631885bcd220446b14ed830bb1dc091eaeaf83ef6d862308`。
+- 内嵌 WebP：1254 × 1254，152,166 B，SHA-256 `556a2aabb245b7f5bcd926b8becbf68a84c268d6ff0f8856924a6ed37d0dbad3`，与官网原有文件字节一致。
+- SVG 中的图像以 data URI 内嵌，裁切只引用内部路径，没有外部图片、字体、脚本或网络依赖。圆外没有绘制背景，可透明显示；内嵌 WebP 本身仍是原有的不透明近白底图。
+
+曾尝试生成透明圆形 PNG，但输出实际为带棋盘格的 RGB 图，没有透明通道。这些生成失败稿没有被采用为标志，也未加入仓库；当前正式资产是上述 SVG。

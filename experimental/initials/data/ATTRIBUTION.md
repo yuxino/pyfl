@@ -1,7 +1,8 @@
 # Experimental initials data: source and attribution
 
-These files are generated research data, not a replacement for the published
-Pyfl 2.0.1 dictionary or an official package entry point.
+These source records generate the opt-in modern entries in Pyfl 2.1.0. They do
+not replace the legacy default dictionary. The production package preserves the
+upstream notices in THIRD_PARTY_NOTICES.
 
 ## Direct inputs
 
@@ -15,13 +16,19 @@ The fixed source commit is dated February 23, 2026 and updates the upstream
 Unihan data to Unicode 17.0.0. Exact URLs, byte counts and SHA-256 hashes of all
 inputs and notices are recorded in [source-lock.json](source-lock.json).
 
-`modern-common.json` contains the common inventory. `modern-full.json` contains
-the full inventory, with the common preferred reading applied wherever present.
+[`src/modern/data/common.json`](../../../src/modern/data/common.json) contains the
+common inventory. [`full.json`](../../../src/modern/data/full.json) contains the
+full inventory, with the common preferred reading applied wherever present.
 Both files obtain alternative readings for their characters from `pinyin.txt`.
 The chosen default initial is placed first; the remaining distinct initials retain
 the upstream reading order. The full table's first reading outside the common
 inventory is an upstream default, not a claim of frequency or contextual accuracy.
 Candidates may include historical or rare readings.
+
+The generated `*-ranges.json` and `*-alternatives.json` files in the same source
+directory separate runtime conversion from candidate search data. They are
+verified against the same locked records and are not imported together by
+conversion-only entries.
 
 Only the first ASCII Latin letter after NFD decomposition and combining-mark
 removal is retained. Tone, remaining syllable letters and duplicate initials are

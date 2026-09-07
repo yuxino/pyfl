@@ -25,12 +25,13 @@
       "name": "common",
       "capability": "conversion",
       "coverage": 8105,
-      "bytes": 23436,
-      "gzip": 9571,
-      "brotli": 7882,
+      "bytes": 23466,
+      "gzip": 9584,
+      "brotli": 7899,
       "bundledInputs": [
-        "data/modern-common.json",
-        "runtime.ts",
+        "../../src/modern/data/common-ranges.json",
+        "../../src/modern/runtime.ts",
+        "../../src/modern/common.ts",
         "common.ts"
       ]
     },
@@ -38,13 +39,14 @@
       "name": "common-phrases",
       "capability": "conversion + curated phrases",
       "coverage": 8105,
-      "bytes": 24526,
-      "gzip": 9980,
-      "brotli": 8149,
+      "bytes": 24564,
+      "gzip": 9994,
+      "brotli": 8148,
       "bundledInputs": [
-        "data/modern-common.json",
-        "fixtures/phrases.json",
-        "runtime.ts",
+        "../../src/modern/data/common-ranges.json",
+        "../../src/modern/data/phrases.json",
+        "../../src/modern/runtime.ts",
+        "../../src/modern/common-phrases.ts",
         "common-phrases.ts"
       ]
     },
@@ -52,12 +54,13 @@
       "name": "full",
       "capability": "conversion",
       "coverage": 44435,
-      "bytes": 90190,
-      "gzip": 35916,
-      "brotli": 32227,
+      "bytes": 90220,
+      "gzip": 35929,
+      "brotli": 32195,
       "bundledInputs": [
-        "data/modern-full.json",
-        "runtime.ts",
+        "../../src/modern/data/full-ranges.json",
+        "../../src/modern/runtime.ts",
+        "../../src/modern/full.ts",
         "full.ts"
       ]
     },
@@ -65,13 +68,14 @@
       "name": "full-phrases",
       "capability": "conversion + curated phrases",
       "coverage": 44435,
-      "bytes": 91280,
-      "gzip": 36303,
-      "brotli": 32461,
+      "bytes": 91318,
+      "gzip": 36322,
+      "brotli": 32444,
       "bundledInputs": [
-        "data/modern-full.json",
-        "fixtures/phrases.json",
-        "runtime.ts",
+        "../../src/modern/data/full-ranges.json",
+        "../../src/modern/data/phrases.json",
+        "../../src/modern/runtime.ts",
+        "../../src/modern/full-phrases.ts",
         "full-phrases.ts"
       ]
     },
@@ -79,13 +83,15 @@
       "name": "common-search",
       "capability": "candidate initial search",
       "coverage": 8105,
-      "bytes": 38567,
-      "gzip": 17933,
-      "brotli": 12724,
+      "bytes": 38571,
+      "gzip": 17935,
+      "brotli": 12733,
       "bundledInputs": [
-        "data/modern-common.json",
-        "runtime.ts",
-        "candidates.ts",
+        "../../src/modern/data/common-ranges.json",
+        "../../src/modern/data/common-alternatives.json",
+        "../../src/modern/runtime.ts",
+        "../../src/modern/candidates.ts",
+        "../../src/modern/common-search.ts",
         "common-search.ts"
       ]
     },
@@ -93,13 +99,15 @@
       "name": "full-search",
       "capability": "candidate initial search",
       "coverage": 44435,
-      "bytes": 145017,
-      "gzip": 62358,
-      "brotli": 48096,
+      "bytes": 145021,
+      "gzip": 62370,
+      "brotli": 48094,
       "bundledInputs": [
-        "data/modern-full.json",
-        "runtime.ts",
-        "candidates.ts",
+        "../../src/modern/data/full-ranges.json",
+        "../../src/modern/data/full-alternatives.json",
+        "../../src/modern/runtime.ts",
+        "../../src/modern/candidates.ts",
+        "../../src/modern/full-search.ts",
         "full-search.ts"
       ]
     }

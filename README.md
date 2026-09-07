@@ -1,111 +1,61 @@
 <div align="center">
-  <img src="docs/pyfl-avatar.png" width="112" alt="pyfl">
+  <img src="https://raw.githubusercontent.com/yuxino/pyfl/main/docs/pyfl-logo.svg" width="112" alt="pyfl 短发小魔女">
   <h1>pyfl</h1>
-  <p>Turn Chinese text into searchable initials.</p>
-  <p>
-    <a href="https://pyfl.yuxino.cn"><strong>Try it online</strong></a>
-    · <a href="https://www.npmjs.com/package/pyfl">npm</a>
-    · <a href="https://github.com/yuxino/pyfl/issues">Report an issue</a>
-  </p>
-  <p><strong>English</strong> · <a href="README_zh-CN.md">简体中文</a></p>
+  <p>把中文变成好找的首字母。</p>
+  <p><a href="https://pyfl.yuxino.cn">在线试一试</a> · <a href="https://www.npmjs.com/package/pyfl">npm</a> · <a href="https://github.com/yuxino/pyfl/issues">反馈问题</a></p>
+  <p><strong>简体中文</strong> · <a href="https://github.com/yuxino/pyfl/blob/main/README_en.md">English</a></p>
 </div>
 
-pyfl converts supported Chinese characters to uppercase pinyin initials, one character at a time. It preserves English text, numbers, spaces, and symbols. Use it for Chinese title searches, contact abbreviations, or search indexes. Conversion uses a built-in dictionary, makes no network requests, and has no runtime dependencies.
+轻量的拼音首字母工具，适合中文标题、通讯录和搜索索引。本地转换，无运行时依赖。`2.1.0` 新增可选的现代字表、词组规则和多读音搜索，原有入口保持兼容。
 
-Version `2.0.1` keeps the `2.0.0` dictionary and conversion rules while improving string concatenation, reducing package size, and adding a native ESM entry point. Existing initials indexes need no migration. **`2.0.1` is published on npm and available with `npm install pyfl`.**
+## 安装
 
-## Install and use
-
-Install the published npm version:
-
-```bash
+```sh
 npm install pyfl
 ```
 
-In frontend projects using Vite, Webpack, or similar bundlers:
+## 使用
+
+沿用旧字表，已有索引无需迁移：
 
 ```js
 import pyfl from "pyfl";
 
-pyfl("喵");             // "M"
-pyfl("你好，世界");      // "NH，SJ"
-pyfl("周末去 Tokyo 🐈"); // "ZMQ Tokyo 🐈"
-pyfl("Made by ❤");     // "Made by ❤"
+pyfl("你好，世界"); // "NH，SJ"
+pyfl("重庆");       // "ZQ"，保持原结果
 ```
 
-The CommonJS entry keeps the existing `.default` usage:
+现代入口使用 8,105 字的常用表和 36 条词组规则：
 
 ```js
-const pyfl = require("pyfl").default;
+import modern from "pyfl/modern";
+
+modern("重庆 / 音乐 / 银行 / 行走"); // "CQ / YY / YH / XZ"
+modern("周末去 Tokyo 🐈");          // "ZMQ Tokyo 🐈"
 ```
 
-The `2.0.1` npm package includes native ESM and CommonJS/UMD builds. Node ESM, browser modules, and bundlers that support `exports` can use its default export directly. The TypeScript declaration is `pyfl(raw: unknown): string`. To build the library locally, see [Build from source](#build-from-source).
-
-## Use initials in search
-
-Generate indexes when the data changes, then reuse them for each query:
+多读音搜索让不同读法的首字母都能匹配：
 
 ```js
-const items = ["张小明", "李小雨", "上海笔记"].map((title) => ({
-  title,
-  initials: pyfl(title).toLowerCase(),
-}));
+import matches from "pyfl/modern/common-search";
 
-const query = "zxm".toLowerCase();
-const matches = items.filter(({ title, initials }) =>
-  title.toLowerCase().includes(query) || initials.includes(query)
-);
-// [{ title: "张小明", initials: "zxm" }]
+matches("重庆", "cq"); // true
+matches("重庆", "zq"); // true
 ```
 
-Pyfl only generates initials. Your application decides how to sort, match, normalize case, and update its indexes.
+支持 ESM、CommonJS 和 TypeScript；CommonJS 使用 `require("pyfl").default`，现代入口同样通过 `.default` 调用。需要 44,435 字的扩展表、不带词组的轻量入口或自定义读音，见[现代入口指南](https://github.com/yuxino/pyfl/blob/main/docs/modern.md)。
 
-## Conversion rules and limits
+## 使用边界
 
-- The built-in table contains 20,902 fixed initials for `U+4E00–U+9FA5`, preserving the original dictionary.
-- Characters outside that range stay unchanged, including extended Chinese characters, emoji, combining characters, and lone UTF-16 surrogates.
-- Only an empty string or a string consisting entirely of ASCII spaces becomes an empty string. Tabs, line breaks, nonbreaking spaces, and fullwidth spaces are preserved.
-- Non-string inputs use JavaScript template-string coercion. Any errors raised by that conversion are preserved.
-- Pyfl does not segment words, recognize surnames, infer context-dependent pronunciations, or produce full pinyin.
+- 默认 `pyfl` 保留原有 20,902 字表；现代字表读音和覆盖范围不同，切换后应重建索引。
+- 未收录字符原样保留。英文大小写、数字、标点和 emoji 保留；纯半角空格转为空串。
+- 词组规则处理收录的常用词，不推断任意语境或姓名。多读音搜索匹配连续首字母，可能包含罕见读法，不代表选中了正确读音。
+- 输出每字拼音的第一个字母，不输出完整拼音或 `zh/ch/sh` 声母。
 
-```js
-pyfl(123456);     // "123456"
-pyfl(undefined);  // "undefined"
-pyfl(null);       // "null"
-pyfl("   ");      // ""
-pyfl("\t\n");     // "\t\n"
-pyfl(Symbol());   // TypeError, matching template-string coercion
-pyfl("𠮷野家");    // "𠮷YJ"
+## 开发与许可
 
-pyfl("重庆");     // "ZQ"; does not infer chóng for 重 in this place name
-pyfl("音乐");     // "YL"; does not infer yuè for 乐 in this word
-```
+Node.js 22 / 24：`npm ci` 后运行 `npm run check`，完成类型、回归、构建和安装包检查。
 
-If you need contextual pronunciation, full pinyin, or surname rules, use an engine with those capabilities, such as [pinyin-pro](https://pinyin-pro.cn/use/pinyin.html). Switching engines changes existing indexes, so rebuild your data and check your application's vocabulary.
+旧字表来自 [pinyinjs](https://github.com/sxei/pinyinjs)，现代字表由固定版本的 [pinyin-data](https://github.com/mozillazg/pinyin-data/tree/923b108dc5d45dee061324c011b478fb649f8b73) 生成。数据来源与许可见 [THIRD_PARTY_NOTICES](https://github.com/yuxino/pyfl/blob/main/THIRD_PARTY_NOTICES)，版本变化见 [CHANGELOG](https://github.com/yuxino/pyfl/blob/main/CHANGELOG.md)。
 
-A source-only [modern initials experiment](experimental/initials/README.md) compares smaller common-character data, a broader inventory, optional phrase rules, and candidate-initial search. It includes measured sizes and explicit coverage limits. It does not change the published API and is not included in the npm package.
-
-## Build from source
-
-Development and CI use Node.js 22 or 24, npm, and the committed `package-lock.json`:
-
-```bash
-git clone https://github.com/yuxino/pyfl.git
-cd pyfl
-git checkout main
-npm ci
-npm run check
-npm pack
-```
-
-`npm run check` covers type checking, regression checks across the full UTF-16 range and mixed text, the source-only initials experiment, a production build, and ESM, CommonJS, UMD, AMD, and TypeScript entry points installed from a real tarball. The automated UMD/AMD checks run in isolated JavaScript contexts; the website's browser interactions are verified separately.
-
-Build outputs are `dist/index.mjs` and `dist/pyfl.min.js`, with declarations in `types/`. The legacy `require("pyfl/dist/pyfl.min.js").default` deep import remains available. Runtime files no longer contain inline source maps.
-
-See the [optimization notes](docs/optimization.md) for the compared approaches, measurement conditions, and reproducible commands, and the [CHANGELOG](CHANGELOG.md) for changes. Candidate engines used for benchmarking live separately in `benchmark/`; they are not runtime dependencies and are not included in the published package.
-
-## Origins and license
-
-pyfl was originally written for [WeChat](https://github.com/Nbsaw/WeChat). Its initials dictionary is adapted from [pinyinjs](https://github.com/sxei/pinyinjs) and is unchanged in this update. The upstream license is included in [THIRD_PARTY_NOTICES](THIRD_PARTY_NOTICES).
-
-[MIT](LICENSE) © [yuxino](https://github.com/yuxino)
+[MIT](https://github.com/yuxino/pyfl/blob/main/LICENSE) © [yuxino](https://github.com/yuxino)
