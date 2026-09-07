@@ -12,7 +12,7 @@
 
 pyfl converts supported Chinese characters to uppercase pinyin initials, one character at a time. It preserves English text, numbers, spaces, and symbols. Use it for Chinese title searches, contact abbreviations, or search indexes. Conversion uses a built-in dictionary, makes no network requests, and has no runtime dependencies.
 
-The current `2.0.1` source build keeps the `2.0.0` dictionary and conversion rules while improving string concatenation, reducing package size, and adding a native ESM entry point. Existing initials indexes need no migration. **As of September 7, 2026, npm still publishes `2.0.0`; `2.0.1` has not been published.** The website runs the optimized source build.
+Version `2.0.1` keeps the `2.0.0` dictionary and conversion rules while improving string concatenation, reducing package size, and adding a native ESM entry point. Existing initials indexes need no migration. **`2.0.1` is published on npm and available with `npm install pyfl`.**
 
 ## Install and use
 
@@ -39,7 +39,7 @@ The CommonJS entry keeps the existing `.default` usage:
 const pyfl = require("pyfl").default;
 ```
 
-The `2.0.1` source package includes native ESM and CommonJS/UMD builds. Node ESM, browser modules, and bundlers that support `exports` can use its default export directly. The TypeScript declaration is `pyfl(raw: unknown): string`. These new entry points require the source build until `2.0.1` is published; see [Build from source](#build-from-source).
+The `2.0.1` npm package includes native ESM and CommonJS/UMD builds. Node ESM, browser modules, and bundlers that support `exports` can use its default export directly. The TypeScript declaration is `pyfl(raw: unknown): string`. To build the library locally, see [Build from source](#build-from-source).
 
 ## Use initials in search
 
