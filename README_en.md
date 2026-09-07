@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="https://raw.githubusercontent.com/yuxino/pyfl/main/docs/pyfl-logo.svg" width="112" alt="pyfl short-haired witch">
+  <img src="https://raw.githubusercontent.com/yuxino/pyfl/main/docs/pyfl-logo.png" width="112" alt="pyfl short-haired witch">
   <h1>pyfl</h1>
   <p>Turn Chinese text into searchable initials.</p>
   <p><a href="https://pyfl.yuxino.cn">Try it online</a> · <a href="https://www.npmjs.com/package/pyfl">npm</a> · <a href="https://github.com/yuxino/pyfl/issues">Report an issue</a></p>
