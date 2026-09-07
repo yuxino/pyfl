@@ -1,6 +1,6 @@
 # Changelog
 
-## 2.0.1 — Unreleased
+## 2.0.1 — 2026-09-07
 
 - Preserve all existing conversion results, the original 20,902-entry dictionary, input coercion, whitespace rules, and Unicode boundaries.
 - Copy unchanged text spans and append converted initials without allocating a per-character array.
@@ -10,4 +10,4 @@
 - Add full UTF-16 compatibility checks, seeded mixed inputs, installed-package entry checks, and Node.js 22 / 24 CI on Linux and Windows.
 - Update the development-only `fast-uri` lock entry to the patched version.
 
-No data migration is needed for Pyfl-generated indexes. Native Node ESM callers can now use `import pyfl from "pyfl"`; CommonJS callers continue to use `require("pyfl").default`. This source version has not yet been published to npm.
+No data migration is needed for Pyfl-generated indexes. Native Node ESM callers can now use `import pyfl from "pyfl"`; CommonJS callers continue to use `require("pyfl").default`.
