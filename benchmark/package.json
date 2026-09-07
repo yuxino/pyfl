@@ -1,0 +1,12 @@
+{
+  "name": "pyfl-benchmark",
+  "private": true,
+  "type": "module",
+  "scripts": { "bench": "node run.mjs" },
+  "dependencies": {
+    "esbuild": "0.28.2",
+    "pinyin": "4.0.0",
+    "pinyin-pro": "3.29.3",
+    "pyfl-published": "npm:pyfl@2.0.0"
+  }
+}

@@ -1,17 +1,25 @@
 {
   "name": "pyfl",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "获取拼音首字母",
   "main": "./dist/pyfl.min.js",
   "types": "./types/index.d.ts",
   "scripts": {
-    "build": "webpack",
-    "test": "tsx --test test/**/*.spec.ts",
-    "prepublishOnly": "npm run test && npm run build"
+    "build": "webpack && tsc --emitDeclarationOnly && node scripts/copy-types.cjs",
+    "test": "tsx --test test/*.spec.ts",
+    "typecheck": "tsc --noEmit",
+    "test:package": "node scripts/test-package.mjs",
+    "check": "npm run typecheck && npm test && npm run build && npm run test:package",
+    "prepack": "npm run build",
+    "prepublishOnly": "npm run check"
   },
   "files": [
-    "dist/**/*",
-    "types/index.d.ts"
+    "dist/pyfl.min.js",
+    "dist/index.mjs",
+    "types/index.d.ts",
+    "types/index.d.mts",
+    "THIRD_PARTY_NOTICES",
+    "CHANGELOG.md"
   ],
   "repository": {
     "type": "git",
@@ -28,7 +36,7 @@
   "bugs": {
     "url": "https://github.com/yuxino/pyfl/issues"
   },
-  "homepage": "https://github.com/yuxino/pyfl#readme",
+  "homepage": "https://pyfl.yuxino.cn",
   "devDependencies": {
     "@types/node": "^26.1.2",
     "ts-loader": "^9.6.2",
@@ -36,5 +44,23 @@
     "typescript": "^5.9.3",
     "webpack": "^5.109.1",
     "webpack-cli": "^7.2.1"
-  }
+  },
+  "module": "./dist/index.mjs",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./types/index.d.mts",
+        "default": "./dist/index.mjs"
+      },
+      "require": {
+        "types": "./types/index.d.ts",
+        "default": "./dist/pyfl.min.js"
+      }
+    },
+    "./dist/pyfl.min": "./dist/pyfl.min.js",
+    "./dist/*": "./dist/*",
+    "./types/*": "./types/*",
+    "./package.json": "./package.json"
+  },
+  "sideEffects": false
 }
