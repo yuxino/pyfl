@@ -8,8 +8,10 @@
     "build": "webpack && tsc --emitDeclarationOnly && node scripts/copy-types.cjs",
     "test": "tsx --test test/*.spec.ts",
     "typecheck": "tsc --noEmit",
+    "test:experimental": "tsc -p experimental/initials/tsconfig.json && tsx --test experimental/initials/test/*.spec.ts",
+    "measure:experimental": "node experimental/initials/measure.mjs",
     "test:package": "node scripts/test-package.mjs",
-    "check": "npm run typecheck && npm test && npm run build && npm run test:package",
+    "check": "npm run typecheck && npm test && npm run test:experimental && npm run build && npm run test:package",
     "prepack": "npm run build",
     "prepublishOnly": "npm run check"
   },

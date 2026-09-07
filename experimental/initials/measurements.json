@@ -1,0 +1,715 @@
+{
+  "formatVersion": 1,
+  "sourceCommit": "923b108dc5d45dee061324c011b478fb649f8b73",
+  "runtime": {
+    "node": "v24.13.0",
+    "esbuild": "0.28.2",
+    "zlib": "1.3.1-470d3a2"
+  },
+  "method": "Browser ESM, es2018, esbuild minified, UTF-8, gzip level 9, Brotli quality 11. Includes all reachable code/data; named JSON imports omit unused candidate readings and test cases. These are bundle bytes, not npm tarball bytes.",
+  "phraseRules": 36,
+  "bundles": [
+    {
+      "name": "legacy",
+      "capability": "conversion",
+      "coverage": 20902,
+      "bytes": 21154,
+      "gzip": 12055,
+      "brotli": 11457,
+      "bundledInputs": [
+        "../../src/dict/firstletter.ts",
+        "../../src/index.ts"
+      ]
+    },
+    {
+      "name": "common",
+      "capability": "conversion",
+      "coverage": 8105,
+      "bytes": 23436,
+      "gzip": 9571,
+      "brotli": 7882,
+      "bundledInputs": [
+        "data/modern-common.json",
+        "runtime.ts",
+        "common.ts"
+      ]
+    },
+    {
+      "name": "common-phrases",
+      "capability": "conversion + curated phrases",
+      "coverage": 8105,
+      "bytes": 24526,
+      "gzip": 9980,
+      "brotli": 8149,
+      "bundledInputs": [
+        "data/modern-common.json",
+        "fixtures/phrases.json",
+        "runtime.ts",
+        "common-phrases.ts"
+      ]
+    },
+    {
+      "name": "full",
+      "capability": "conversion",
+      "coverage": 44435,
+      "bytes": 90190,
+      "gzip": 35916,
+      "brotli": 32227,
+      "bundledInputs": [
+        "data/modern-full.json",
+        "runtime.ts",
+        "full.ts"
+      ]
+    },
+    {
+      "name": "full-phrases",
+      "capability": "conversion + curated phrases",
+      "coverage": 44435,
+      "bytes": 91280,
+      "gzip": 36303,
+      "brotli": 32461,
+      "bundledInputs": [
+        "data/modern-full.json",
+        "fixtures/phrases.json",
+        "runtime.ts",
+        "full-phrases.ts"
+      ]
+    },
+    {
+      "name": "common-search",
+      "capability": "candidate initial search",
+      "coverage": 8105,
+      "bytes": 38567,
+      "gzip": 17933,
+      "brotli": 12724,
+      "bundledInputs": [
+        "data/modern-common.json",
+        "runtime.ts",
+        "candidates.ts",
+        "common-search.ts"
+      ]
+    },
+    {
+      "name": "full-search",
+      "capability": "candidate initial search",
+      "coverage": 44435,
+      "bytes": 145017,
+      "gzip": 62358,
+      "brotli": 48096,
+      "bundledInputs": [
+        "data/modern-full.json",
+        "runtime.ts",
+        "candidates.ts",
+        "full-search.ts"
+      ]
+    }
+  ],
+  "examples": [
+    {
+      "input": "重庆",
+      "legacy": "ZQ",
+      "common": "ZQ",
+      "common-phrases": "CQ",
+      "full": "ZQ",
+      "full-phrases": "CQ"
+    },
+    {
+      "input": "音乐",
+      "legacy": "YL",
+      "common": "YL",
+      "common-phrases": "YY",
+      "full": "YL",
+      "full-phrases": "YY"
+    },
+    {
+      "input": "银行",
+      "legacy": "YH",
+      "common": "YX",
+      "common-phrases": "YH",
+      "full": "YX",
+      "full-phrases": "YH"
+    },
+    {
+      "input": "行走",
+      "legacy": "HZ",
+      "common": "XZ",
+      "common-phrases": "XZ",
+      "full": "XZ",
+      "full-phrases": "XZ"
+    },
+    {
+      "input": "行长",
+      "legacy": "HZ",
+      "common": "XZ",
+      "common-phrases": "HZ",
+      "full": "XZ",
+      "full-phrases": "HZ"
+    },
+    {
+      "input": "长大",
+      "legacy": "ZD",
+      "common": "ZD",
+      "common-phrases": "ZD",
+      "full": "ZD",
+      "full-phrases": "ZD"
+    },
+    {
+      "input": "长度",
+      "legacy": "ZD",
+      "common": "ZD",
+      "common-phrases": "CD",
+      "full": "ZD",
+      "full-phrases": "CD"
+    },
+    {
+      "input": "朝阳",
+      "legacy": "CY",
+      "common": "CY",
+      "common-phrases": "CY",
+      "full": "CY",
+      "full-phrases": "CY"
+    },
+    {
+      "input": "𠀀𠮷",
+      "legacy": "𠀀𠮷",
+      "common": "𠀀𠮷",
+      "common-phrases": "𠀀𠮷",
+      "full": "H𠮷",
+      "full-phrases": "H𠮷"
+    }
+  ],
+  "regression": {
+    "legacy": {
+      "total": 50,
+      "passed": 19,
+      "failures": [
+        {
+          "input": "重庆",
+          "expected": "CQ",
+          "actual": "ZQ"
+        },
+        {
+          "input": "重庆火锅",
+          "expected": "CQHG",
+          "actual": "ZQHG"
+        },
+        {
+          "input": "重庆欢迎你",
+          "expected": "CQHYN",
+          "actual": "ZQHYN"
+        },
+        {
+          "input": "重复",
+          "expected": "CF",
+          "actual": "ZF"
+        },
+        {
+          "input": "重复一遍",
+          "expected": "CFYB",
+          "actual": "ZFYB"
+        },
+        {
+          "input": "重新开始",
+          "expected": "CXKS",
+          "actual": "ZXKS"
+        },
+        {
+          "input": "重来",
+          "expected": "CL",
+          "actual": "ZL"
+        },
+        {
+          "input": "重试",
+          "expected": "CS",
+          "actual": "ZS"
+        },
+        {
+          "input": "久别重逢",
+          "expected": "JBCF",
+          "actual": "JBZF"
+        },
+        {
+          "input": "音乐",
+          "expected": "YY",
+          "actual": "YL"
+        },
+        {
+          "input": "听音乐",
+          "expected": "TYY",
+          "actual": "TYL"
+        },
+        {
+          "input": "音乐老师",
+          "expected": "YYLS",
+          "actual": "YLLS"
+        },
+        {
+          "input": "乐队",
+          "expected": "YD",
+          "actual": "LD"
+        },
+        {
+          "input": "乐队演出",
+          "expected": "YDYC",
+          "actual": "LDYC"
+        },
+        {
+          "input": "乐器",
+          "expected": "YQ",
+          "actual": "LQ"
+        },
+        {
+          "input": "乐谱",
+          "expected": "YP",
+          "actual": "LP"
+        },
+        {
+          "input": "乐章",
+          "expected": "YZ",
+          "actual": "LZ"
+        },
+        {
+          "input": "行走",
+          "expected": "XZ",
+          "actual": "HZ"
+        },
+        {
+          "input": "行人",
+          "expected": "XR",
+          "actual": "HR"
+        },
+        {
+          "input": "行李",
+          "expected": "XL",
+          "actual": "HL"
+        },
+        {
+          "input": "行动",
+          "expected": "XD",
+          "actual": "HD"
+        },
+        {
+          "input": "行为",
+          "expected": "XW",
+          "actual": "HW"
+        },
+        {
+          "input": "长度",
+          "expected": "CD",
+          "actual": "ZD"
+        },
+        {
+          "input": "长城",
+          "expected": "CC",
+          "actual": "ZC"
+        },
+        {
+          "input": "万里长城",
+          "expected": "WLCC",
+          "actual": "WLZC"
+        },
+        {
+          "input": "长江",
+          "expected": "CJ",
+          "actual": "ZJ"
+        },
+        {
+          "input": "长久",
+          "expected": "CJ",
+          "actual": "ZJ"
+        },
+        {
+          "input": "长短",
+          "expected": "CD",
+          "actual": "ZD"
+        },
+        {
+          "input": "长远",
+          "expected": "CY",
+          "actual": "ZY"
+        },
+        {
+          "input": "重庆 / 音乐 / 银行",
+          "expected": "CQ / YY / YH",
+          "actual": "ZQ / YL / YH"
+        },
+        {
+          "input": "Music 音乐 2026\n生日快乐🎵",
+          "expected": "Music YY 2026\nSRKL🎵",
+          "actual": "Music YL 2026\nSRKL🎵"
+        }
+      ]
+    },
+    "common": {
+      "total": 50,
+      "passed": 17,
+      "failures": [
+        {
+          "input": "重庆",
+          "expected": "CQ",
+          "actual": "ZQ"
+        },
+        {
+          "input": "重庆火锅",
+          "expected": "CQHG",
+          "actual": "ZQHG"
+        },
+        {
+          "input": "重庆欢迎你",
+          "expected": "CQHYN",
+          "actual": "ZQHYN"
+        },
+        {
+          "input": "重复",
+          "expected": "CF",
+          "actual": "ZF"
+        },
+        {
+          "input": "重复一遍",
+          "expected": "CFYB",
+          "actual": "ZFYB"
+        },
+        {
+          "input": "重新开始",
+          "expected": "CXKS",
+          "actual": "ZXKS"
+        },
+        {
+          "input": "重来",
+          "expected": "CL",
+          "actual": "ZL"
+        },
+        {
+          "input": "重试",
+          "expected": "CS",
+          "actual": "ZS"
+        },
+        {
+          "input": "久别重逢",
+          "expected": "JBCF",
+          "actual": "JBZF"
+        },
+        {
+          "input": "音乐",
+          "expected": "YY",
+          "actual": "YL"
+        },
+        {
+          "input": "听音乐",
+          "expected": "TYY",
+          "actual": "TYL"
+        },
+        {
+          "input": "音乐老师",
+          "expected": "YYLS",
+          "actual": "YLLS"
+        },
+        {
+          "input": "乐队",
+          "expected": "YD",
+          "actual": "LD"
+        },
+        {
+          "input": "乐队演出",
+          "expected": "YDYC",
+          "actual": "LDYC"
+        },
+        {
+          "input": "乐器",
+          "expected": "YQ",
+          "actual": "LQ"
+        },
+        {
+          "input": "乐谱",
+          "expected": "YP",
+          "actual": "LP"
+        },
+        {
+          "input": "乐章",
+          "expected": "YZ",
+          "actual": "LZ"
+        },
+        {
+          "input": "银行",
+          "expected": "YH",
+          "actual": "YX"
+        },
+        {
+          "input": "去银行",
+          "expected": "QYH",
+          "actual": "QYX"
+        },
+        {
+          "input": "银行行长",
+          "expected": "YHHZ",
+          "actual": "YXXZ"
+        },
+        {
+          "input": "行长",
+          "expected": "HZ",
+          "actual": "XZ"
+        },
+        {
+          "input": "行业",
+          "expected": "HY",
+          "actual": "XY"
+        },
+        {
+          "input": "行业报告",
+          "expected": "HYBG",
+          "actual": "XYBG"
+        },
+        {
+          "input": "行家",
+          "expected": "HJ",
+          "actual": "XJ"
+        },
+        {
+          "input": "长度",
+          "expected": "CD",
+          "actual": "ZD"
+        },
+        {
+          "input": "长城",
+          "expected": "CC",
+          "actual": "ZC"
+        },
+        {
+          "input": "万里长城",
+          "expected": "WLCC",
+          "actual": "WLZC"
+        },
+        {
+          "input": "长江",
+          "expected": "CJ",
+          "actual": "ZJ"
+        },
+        {
+          "input": "长久",
+          "expected": "CJ",
+          "actual": "ZJ"
+        },
+        {
+          "input": "长短",
+          "expected": "CD",
+          "actual": "ZD"
+        },
+        {
+          "input": "长远",
+          "expected": "CY",
+          "actual": "ZY"
+        },
+        {
+          "input": "重庆 / 音乐 / 银行",
+          "expected": "CQ / YY / YH",
+          "actual": "ZQ / YL / YX"
+        },
+        {
+          "input": "Music 音乐 2026\n生日快乐🎵",
+          "expected": "Music YY 2026\nSRKL🎵",
+          "actual": "Music YL 2026\nSRKL🎵"
+        }
+      ]
+    },
+    "common-phrases": {
+      "total": 50,
+      "passed": 50,
+      "failures": []
+    },
+    "full": {
+      "total": 50,
+      "passed": 17,
+      "failures": [
+        {
+          "input": "重庆",
+          "expected": "CQ",
+          "actual": "ZQ"
+        },
+        {
+          "input": "重庆火锅",
+          "expected": "CQHG",
+          "actual": "ZQHG"
+        },
+        {
+          "input": "重庆欢迎你",
+          "expected": "CQHYN",
+          "actual": "ZQHYN"
+        },
+        {
+          "input": "重复",
+          "expected": "CF",
+          "actual": "ZF"
+        },
+        {
+          "input": "重复一遍",
+          "expected": "CFYB",
+          "actual": "ZFYB"
+        },
+        {
+          "input": "重新开始",
+          "expected": "CXKS",
+          "actual": "ZXKS"
+        },
+        {
+          "input": "重来",
+          "expected": "CL",
+          "actual": "ZL"
+        },
+        {
+          "input": "重试",
+          "expected": "CS",
+          "actual": "ZS"
+        },
+        {
+          "input": "久别重逢",
+          "expected": "JBCF",
+          "actual": "JBZF"
+        },
+        {
+          "input": "音乐",
+          "expected": "YY",
+          "actual": "YL"
+        },
+        {
+          "input": "听音乐",
+          "expected": "TYY",
+          "actual": "TYL"
+        },
+        {
+          "input": "音乐老师",
+          "expected": "YYLS",
+          "actual": "YLLS"
+        },
+        {
+          "input": "乐队",
+          "expected": "YD",
+          "actual": "LD"
+        },
+        {
+          "input": "乐队演出",
+          "expected": "YDYC",
+          "actual": "LDYC"
+        },
+        {
+          "input": "乐器",
+          "expected": "YQ",
+          "actual": "LQ"
+        },
+        {
+          "input": "乐谱",
+          "expected": "YP",
+          "actual": "LP"
+        },
+        {
+          "input": "乐章",
+          "expected": "YZ",
+          "actual": "LZ"
+        },
+        {
+          "input": "银行",
+          "expected": "YH",
+          "actual": "YX"
+        },
+        {
+          "input": "去银行",
+          "expected": "QYH",
+          "actual": "QYX"
+        },
+        {
+          "input": "银行行长",
+          "expected": "YHHZ",
+          "actual": "YXXZ"
+        },
+        {
+          "input": "行长",
+          "expected": "HZ",
+          "actual": "XZ"
+        },
+        {
+          "input": "行业",
+          "expected": "HY",
+          "actual": "XY"
+        },
+        {
+          "input": "行业报告",
+          "expected": "HYBG",
+          "actual": "XYBG"
+        },
+        {
+          "input": "行家",
+          "expected": "HJ",
+          "actual": "XJ"
+        },
+        {
+          "input": "长度",
+          "expected": "CD",
+          "actual": "ZD"
+        },
+        {
+          "input": "长城",
+          "expected": "CC",
+          "actual": "ZC"
+        },
+        {
+          "input": "万里长城",
+          "expected": "WLCC",
+          "actual": "WLZC"
+        },
+        {
+          "input": "长江",
+          "expected": "CJ",
+          "actual": "ZJ"
+        },
+        {
+          "input": "长久",
+          "expected": "CJ",
+          "actual": "ZJ"
+        },
+        {
+          "input": "长短",
+          "expected": "CD",
+          "actual": "ZD"
+        },
+        {
+          "input": "长远",
+          "expected": "CY",
+          "actual": "ZY"
+        },
+        {
+          "input": "重庆 / 音乐 / 银行",
+          "expected": "CQ / YY / YH",
+          "actual": "ZQ / YL / YX"
+        },
+        {
+          "input": "Music 音乐 2026\n生日快乐🎵",
+          "expected": "Music YY 2026\nSRKL🎵",
+          "actual": "Music YL 2026\nSRKL🎵"
+        }
+      ]
+    },
+    "full-phrases": {
+      "total": 50,
+      "passed": 50,
+      "failures": []
+    }
+  },
+  "legacyRangeComparison": {
+    "common": {
+      "legacyEntries": 20902,
+      "preservedUnknown": 13073,
+      "differentInitial": 239
+    },
+    "full": {
+      "legacyEntries": 20902,
+      "preservedUnknown": 10,
+      "differentInitial": 1841
+    }
+  },
+  "limitations": [
+    "The common inventory has fewer covered characters than legacy; a smaller bundle is not equivalent coverage.",
+    "The full inventory still has ten unsupported legacy characters. Unsupported code points pass through unchanged.",
+    "The curated regression corpus is illustrative and overlaps phrase rules; its pass count is not an independent accuracy benchmark.",
+    "Candidate search includes rare or historical readings and can create false positives; it does not resolve context.",
+    "Phrase matching is greedy, left-to-right longest matching, not segmentation or sentence-level disambiguation."
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "formatVersion": 1,
+  "sourceCommit": "923b108dc5d45dee061324c011b478fb649f8b73",
+  "upstreamUnicodeVersion": "17.0.0",
+  "rangeGapLimit": 64,
+  "defaultPolicy": "Prefer the kMandarin_8105.txt reading when that character is present; otherwise use the first pinyin.txt reading. The latter is the upstream ordering, not a frequency or contextual guarantee.",
+  "alternativesPolicy": "Both inventories use all matching pinyin.txt readings. Strip combining marks using NFD, take the first ASCII Latin letter, deduplicate in source order, then move the chosen default first. Store only characters with at least two distinct initials.",
+  "limitations": [
+    "Candidate readings may include historical or rare readings. Candidate matching does not choose a contextually appropriate pronunciation.",
+    "First-letter conversion is not full pinyin or shengmu extraction. Tone and remaining syllable letters are intentionally discarded.",
+    "Characters absent from an inventory, including period-marked range holes, remain the runtime's responsibility; this generator does not guess readings.",
+    "Neither inventory promises all Unicode Han characters or complete replacement coverage of the legacy 20,902-character table."
+  ],
+  "sourceCounts": {
+    "full": {
+      "records": 44435,
+      "multipleReadingRecords": 8624,
+      "multipleInitialRecords": 5724,
+      "multipleReadingsCollapsedToOneInitial": 2900,
+      "invalidReadings": []
+    },
+    "common": {
+      "records": 8105,
+      "multipleReadingRecords": 0,
+      "multipleInitialRecords": 0,
+      "multipleReadingsCollapsedToOneInitial": 0,
+      "invalidReadings": []
+    }
+  },
+  "datasets": {
+    "modern-common": {
+      "inventorySource": "kMandarin_8105.txt",
+      "sourceRecords": 8105,
+      "entries": 8105,
+      "ranges": 114,
+      "rangeSlots": 21176,
+      "unknownHoleSlots": 13071,
+      "bmpEntries": 7909,
+      "supplementaryEntries": 196,
+      "minCodePoint": "U+3447",
+      "maxCodePoint": "U+2CE93",
+      "alternativesEntries": 1673,
+      "commonPreferredEntries": 8105,
+      "commonPreferredInitialChanges": 1,
+      "commonPreferredChanges": [
+        {
+          "codePoint": "U+3D14",
+          "character": "㴔",
+          "fullFirstReading": "yì",
+          "preferredReading": "xī"
+        }
+      ],
+      "chosenInitialAbsentFromFull": 0,
+      "invalidDefaults": [],
+      "missingLegacyCount": 13073
+    },
+    "modern-full": {
+      "inventorySource": "pinyin.txt",
+      "sourceRecords": 44435,
+      "entries": 44435,
+      "ranges": 82,
+      "rangeSlots": 88272,
+      "unknownHoleSlots": 43837,
+      "bmpEntries": 26783,
+      "supplementaryEntries": 17652,
+      "minCodePoint": "U+3007",
+      "maxCodePoint": "U+32389",
+      "alternativesEntries": 5724,
+      "commonPreferredEntries": 8105,
+      "commonPreferredInitialChanges": 1,
+      "commonPreferredChanges": [
+        {
+          "codePoint": "U+3D14",
+          "character": "㴔",
+          "fullFirstReading": "yì",
+          "preferredReading": "xī"
+        }
+      ],
+      "chosenInitialAbsentFromFull": 0,
+      "invalidDefaults": [],
+      "missingLegacyCount": 10,
+      "missingLegacyCodePoints": [
+        {
+          "codePoint": "U+5159",
+          "character": "兙"
+        },
+        {
+          "codePoint": "U+5161",
+          "character": "兡"
+        },
+        {
+          "codePoint": "U+55E7",
+          "character": "嗧"
+        },
+        {
+          "codePoint": "U+685B",
+          "character": "桛"
+        },
+        {
+          "codePoint": "U+70EA",
+          "character": "烪"
+        },
+        {
+          "codePoint": "U+74E7",
+          "character": "瓧"
+        },
+        {
+          "codePoint": "U+74F0",
+          "character": "瓰"
+        },
+        {
+          "codePoint": "U+74F1",
+          "character": "瓱"
+        },
+        {
+          "codePoint": "U+74FC",
+          "character": "瓼"
+        },
+        {
+          "codePoint": "U+7505",
+          "character": "甅"
+        }
+      ]
+    }
+  }
+}

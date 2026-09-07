@@ -83,6 +83,8 @@ pyfl("音乐");     // "YL"，不推断“乐”在这里读 yuè
 
 需要按语境读音、完整拼音或姓氏规则时，应选择具备这些能力的引擎，例如 [pinyin-pro](https://pinyin-pro.cn/use/pinyin.html)。换用引擎会改变既有索引，应重建数据并核对业务词表。
 
+源码中另有 [现代首字母实验](experimental/initials/README.md)，对比更小的常用字表、覆盖更广的字表、可选词组规则和多读音首字母搜索，并提供实测体积与明确的覆盖限制。它不改变正式 API，也未包含在 npm 包中。
+
 ## 从源码构建
 
 开发与 CI 使用 Node.js 22 或 24、npm 和提交的 `package-lock.json`：
@@ -96,7 +98,7 @@ npm run check
 npm pack
 ```
 
-`npm run check` 包含类型检查、全 UTF-16 范围与混合文本回归、生产构建，以及真实 tarball 安装后的 ESM、CommonJS、UMD、AMD 和 TypeScript 入口检查。UMD / AMD 的自动检查在隔离 JavaScript 环境中运行；浏览器实际交互由官网单独验收。
+`npm run check` 包含类型检查、全 UTF-16 范围与混合文本回归、源码中的首字母实验测试、生产构建，以及真实 tarball 安装后的 ESM、CommonJS、UMD、AMD 和 TypeScript 入口检查。UMD / AMD 的自动检查在隔离 JavaScript 环境中运行；浏览器实际交互由官网单独验收。
 
 构建产物：`dist/index.mjs`、`dist/pyfl.min.js`，对应声明在 `types/`。旧的 `require("pyfl/dist/pyfl.min.js").default` 深层入口保留。包中不再携带内联源码映射。
 

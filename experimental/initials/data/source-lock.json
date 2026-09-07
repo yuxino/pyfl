@@ -1,0 +1,55 @@
+{
+  "formatVersion": 1,
+  "sourceRepository": "https://github.com/mozillazg/pinyin-data",
+  "sourceCommit": "923b108dc5d45dee061324c011b478fb649f8b73",
+  "sourceCommitDate": "2026-02-23T12:48:27Z",
+  "upstreamUnicodeVersion": "17.0.0",
+  "sources": [
+    {
+      "id": "pinyin-full",
+      "url": "https://raw.githubusercontent.com/mozillazg/pinyin-data/923b108dc5d45dee061324c011b478fb649f8b73/pinyin.txt",
+      "cacheFile": "pinyin-full.txt",
+      "size": 985318,
+      "sha256": "621f8ca9eff8519f47e2b17b564fd318161e13bca07eea8c8e04993cd5d3b52e"
+    },
+    {
+      "id": "pinyin-common",
+      "url": "https://raw.githubusercontent.com/mozillazg/pinyin-data/923b108dc5d45dee061324c011b478fb649f8b73/kMandarin_8105.txt",
+      "cacheFile": "kMandarin_8105.txt",
+      "size": 168058,
+      "sha256": "1b1546f6e190c0f1cbf23e3bb436b41c3ace16f852be4daebc2c7295636628a4"
+    },
+    {
+      "id": "pinyin-data-license",
+      "url": "https://raw.githubusercontent.com/mozillazg/pinyin-data/923b108dc5d45dee061324c011b478fb649f8b73/LICENSE",
+      "cacheFile": "pinyin-data-LICENSE.txt",
+      "licenseFile": "licenses/pinyin-data-MIT.txt",
+      "size": 1076,
+      "sha256": "9c048697be2502a16e8bcb282d5d465a07295b2def0ffb05a269c5d39dbe1586"
+    },
+    {
+      "id": "pinyin-data-readme",
+      "url": "https://raw.githubusercontent.com/mozillazg/pinyin-data/923b108dc5d45dee061324c011b478fb649f8b73/README.md",
+      "cacheFile": "pinyin-data-README.md",
+      "attributionFile": "upstream/pinyin-data-README.md",
+      "size": 4956,
+      "sha256": "9915c8385a34372bc6d95fccf2389e161c6058988f06c0bc39e5265a892ef833"
+    },
+    {
+      "id": "unicode-license",
+      "url": "https://www.unicode.org/license.txt",
+      "cacheFile": "unicode-LICENSE.txt",
+      "licenseFile": "licenses/Unicode-License-V3.txt",
+      "size": 1995,
+      "sha256": "e7a93b009565cfce55919a381437ac4db883e9da2126fa28b91d12732bc53d96"
+    },
+    {
+      "id": "unicode-17-readme",
+      "url": "https://www.unicode.org/Public/17.0.0/ucd/ReadMe.txt",
+      "cacheFile": "Unicode-17-ReadMe.txt",
+      "attributionFile": "upstream/Unicode-17-ReadMe.txt",
+      "size": 740,
+      "sha256": "9fe1a90bd32659d7953616283dc2bffaa165518aae9ace026040c42c559ba606"
+    }
+  ]
+}

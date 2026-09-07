@@ -83,6 +83,8 @@ pyfl("音乐");     // "YL"; does not infer yuè for 乐 in this word
 
 If you need contextual pronunciation, full pinyin, or surname rules, use an engine with those capabilities, such as [pinyin-pro](https://pinyin-pro.cn/use/pinyin.html). Switching engines changes existing indexes, so rebuild your data and check your application's vocabulary.
 
+A source-only [modern initials experiment](experimental/initials/README.md) compares smaller common-character data, a broader inventory, optional phrase rules, and candidate-initial search. It includes measured sizes and explicit coverage limits. It does not change the published API and is not included in the npm package.
+
 ## Build from source
 
 Development and CI use Node.js 22 or 24, npm, and the committed `package-lock.json`:
@@ -96,7 +98,7 @@ npm run check
 npm pack
 ```
 
-`npm run check` covers type checking, regression checks across the full UTF-16 range and mixed text, a production build, and ESM, CommonJS, UMD, AMD, and TypeScript entry points installed from a real tarball. The automated UMD/AMD checks run in isolated JavaScript contexts; the website's browser interactions are verified separately.
+`npm run check` covers type checking, regression checks across the full UTF-16 range and mixed text, the source-only initials experiment, a production build, and ESM, CommonJS, UMD, AMD, and TypeScript entry points installed from a real tarball. The automated UMD/AMD checks run in isolated JavaScript contexts; the website's browser interactions are verified separately.
 
 Build outputs are `dist/index.mjs` and `dist/pyfl.min.js`, with declarations in `types/`. The legacy `require("pyfl/dist/pyfl.min.js").default` deep import remains available. Runtime files no longer contain inline source maps.
 

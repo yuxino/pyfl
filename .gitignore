@@ -62,3 +62,7 @@ types
 
 ## we don't need to upload dist file in repo ..
 dist
+
+# Reproducible experimental dictionary downloads and measured bundles
+/experimental/initials/.cache/
+/experimental/initials/generated/

@@ -1,0 +1,827 @@
+{
+  "formatVersion": 1,
+  "title": "Pyfl experimental modern initials: manually curated phrase acceptance fixtures",
+  "scope": "只用于现代普通话首字母表加可选词组规则原型；不修改或重新定义现有默认 API。明确词句按 notes 指定的常用语义验收，不声称解决自由文本、多音字或姓名的所有读法。",
+  "provenance": {
+    "authorship": "词组、例句和合成测试由本项目手工整理；来源仅用于核对少量读音事实，没有批量导入第三方词典条目或定义。",
+    "checkedOn": "2026-09-08",
+    "script": "实际验收使用简体字；部分官方核对资料使用繁体字，只引用对应读音事实。",
+    "limits": "这是可重复的小样本回归语料，不是随机抽样准确率基准。needsOverride 不计入单一正确答案评分。"
+  },
+  "contract": {
+    "output": "每个可识别汉字输出一个大写拉丁首字母；非汉字按原字符保留，包括大小写、标点、空白、数字和 emoji。",
+    "matching": "从左向右，在当前 Unicode 码点位置选择最长的字面词组；命中后整体消费，不重叠替换。未命中使用字表后备读音。不跨空白、标点或 emoji 拼接词组。",
+    "optIn": "以下 rules 是可选的少量常用语义规则，启用即接受这些局部语义约定；不能由此推断姓名、地名或文言语境。",
+    "overrideBoundary": "应用已知用户姓名、专名或句意时应提供显式覆盖；不要把 needsOverride 中的候选列表当作自动猜测规则。",
+    "ruleRetention": "某条词组结果即使等于逐字后备结果，也可能挡住较短规则，不能仅凭结果相同将其删除。",
+    "synthetic": "synthetic 内的词、首字母映射均为算法测试桩；它们不是汉语读音建议，也不得并入真实词组规则。"
+  },
+  "sources": [
+    {
+      "id": "moe-chongqing",
+      "title": "教育部《重編國語辭典修訂本》：重慶",
+      "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=126839&la=0&powerMode=0",
+      "supports": "核对重慶的 chóng qìng 读音。"
+    },
+    {
+      "id": "moe-zhong",
+      "title": "教育部《國語辭典簡編本》：重",
+      "url": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=31300&la=0&powerMode=0",
+      "supports": "核对 zhòng 与 chóng 分读，质量语义使用 zhòng。"
+    },
+    {
+      "id": "moe-music",
+      "title": "教育部《國語辭典簡編本》：音樂",
+      "url": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=41985&la=0&powerMode=0",
+      "supports": "核对音乐读 yīn yuè。"
+    },
+    {
+      "id": "moe-bank",
+      "title": "教育部《國語辭典簡編本》：銀行",
+      "url": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=42074&la=0&powerMode=0",
+      "supports": "核对银行读 yín háng。"
+    },
+    {
+      "id": "moe-grow",
+      "title": "教育部《國語辭典簡編本》：長大",
+      "url": "https://dict.concised.moe.edu.tw/dictView.jsp?ID=30150&la=0&powerMode=0",
+      "supports": "现代成长语义读 zhǎng dà。"
+    },
+    {
+      "id": "moe-grow-historical",
+      "title": "教育部《重編國語辭典修訂本》：長大",
+      "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=123572&la=0&powerMode=0",
+      "supports": "另有 cháng dà 的历史用法，说明同形词规则有语义适用范围。"
+    },
+    {
+      "id": "moe-great-wall",
+      "title": "教育部《重編國語辭典修訂本》：長城",
+      "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=123714&la=0&powerMode=0",
+      "supports": "核对长城读 cháng chéng。"
+    },
+    {
+      "id": "moe-chaoyang",
+      "title": "教育部《重編國語辭典修訂本》：朝陽",
+      "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=115423&la=1&powerMode=0",
+      "supports": "核对 zhāo yáng 与 cháo yáng 是不同语义读法。"
+    },
+    {
+      "id": "moe-tonghang",
+      "title": "教育部《重編國語辭典修訂本》：同行",
+      "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=55629&la=0&powerMode=0",
+      "supports": "同业者读 tóng háng，一起行走读 tóng xíng。"
+    },
+    {
+      "id": "moe-le",
+      "title": "教育部《重編國語辭典修訂本》：樂",
+      "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=11768&la=0&powerMode=0",
+      "supports": "核对 lè、yuè 等分读，包含姓氏用法；不能据此判定任意个人姓名。"
+    },
+    {
+      "id": "moe-shan",
+      "title": "教育部《重編國語辭典修訂本》：單",
+      "url": "https://dict.revised.moe.edu.tw/dictView.jsp?ID=8375&la=0&powerMode=0",
+      "supports": "核对一般词义 dān 与姓氏 shàn 等分读。"
+    }
+  ],
+  "rules": [
+    {
+      "word": "重庆",
+      "initials": "CQ"
+    },
+    {
+      "word": "重量",
+      "initials": "ZL"
+    },
+    {
+      "word": "体重",
+      "initials": "TZ"
+    },
+    {
+      "word": "重心",
+      "initials": "ZX"
+    },
+    {
+      "word": "重要",
+      "initials": "ZY"
+    },
+    {
+      "word": "重复",
+      "initials": "CF"
+    },
+    {
+      "word": "重新",
+      "initials": "CX"
+    },
+    {
+      "word": "重来",
+      "initials": "CL"
+    },
+    {
+      "word": "重试",
+      "initials": "CS"
+    },
+    {
+      "word": "重逢",
+      "initials": "CF"
+    },
+    {
+      "word": "音乐",
+      "initials": "YY"
+    },
+    {
+      "word": "乐队",
+      "initials": "YD"
+    },
+    {
+      "word": "乐器",
+      "initials": "YQ"
+    },
+    {
+      "word": "乐谱",
+      "initials": "YP"
+    },
+    {
+      "word": "乐章",
+      "initials": "YZ"
+    },
+    {
+      "word": "快乐",
+      "initials": "KL"
+    },
+    {
+      "word": "欢乐",
+      "initials": "HL"
+    },
+    {
+      "word": "银行",
+      "initials": "YH"
+    },
+    {
+      "word": "行长",
+      "initials": "HZ"
+    },
+    {
+      "word": "行业",
+      "initials": "HY"
+    },
+    {
+      "word": "行家",
+      "initials": "HJ"
+    },
+    {
+      "word": "行走",
+      "initials": "XZ"
+    },
+    {
+      "word": "行人",
+      "initials": "XR"
+    },
+    {
+      "word": "行李",
+      "initials": "XL"
+    },
+    {
+      "word": "行动",
+      "initials": "XD"
+    },
+    {
+      "word": "行为",
+      "initials": "XW"
+    },
+    {
+      "word": "长大",
+      "initials": "ZD"
+    },
+    {
+      "word": "成长",
+      "initials": "CZ"
+    },
+    {
+      "word": "长高",
+      "initials": "ZG"
+    },
+    {
+      "word": "长度",
+      "initials": "CD"
+    },
+    {
+      "word": "长城",
+      "initials": "CC"
+    },
+    {
+      "word": "长江",
+      "initials": "CJ"
+    },
+    {
+      "word": "长久",
+      "initials": "CJ"
+    },
+    {
+      "word": "长短",
+      "initials": "CD"
+    },
+    {
+      "word": "长远",
+      "initials": "CY"
+    },
+    {
+      "word": "生长",
+      "initials": "SZ"
+    }
+  ],
+  "cases": [
+    {
+      "id": "phrase-01",
+      "input": "重庆",
+      "expected": "CQ",
+      "notes": "城市名，重读 chóng。"
+    },
+    {
+      "id": "phrase-02",
+      "input": "重庆火锅",
+      "expected": "CQHG",
+      "notes": "城市名修饰普通名词；词组后继续逐字处理。"
+    },
+    {
+      "id": "phrase-03",
+      "input": "重庆欢迎你",
+      "expected": "CQHYN",
+      "notes": "城市名位于句首。"
+    },
+    {
+      "id": "phrase-04",
+      "input": "重量",
+      "expected": "ZL",
+      "notes": "质量、分量语义，重读 zhòng。"
+    },
+    {
+      "id": "phrase-05",
+      "input": "体重",
+      "expected": "TZ",
+      "notes": "身体重量，重读 zhòng。"
+    },
+    {
+      "id": "phrase-06",
+      "input": "重要",
+      "expected": "ZY",
+      "notes": "紧要、有分量的常用语义。"
+    },
+    {
+      "id": "phrase-07",
+      "input": "重心",
+      "expected": "ZX",
+      "notes": "物理或工作重点语义，重读 zhòng。"
+    },
+    {
+      "id": "phrase-08",
+      "input": "重复",
+      "expected": "CF",
+      "notes": "再次发生或再次做，重读 chóng。"
+    },
+    {
+      "id": "phrase-09",
+      "input": "重复一遍",
+      "expected": "CFYB",
+      "notes": "重读 chóng；不涉及声调输出。"
+    },
+    {
+      "id": "phrase-10",
+      "input": "重新开始",
+      "expected": "CXKS",
+      "notes": "再次开始，重读 chóng。"
+    },
+    {
+      "id": "phrase-11",
+      "input": "重来",
+      "expected": "CL",
+      "notes": "再做一次。"
+    },
+    {
+      "id": "phrase-12",
+      "input": "重试",
+      "expected": "CS",
+      "notes": "再次尝试，例如软件中的重试操作。"
+    },
+    {
+      "id": "phrase-13",
+      "input": "久别重逢",
+      "expected": "JBCF",
+      "notes": "分别后再次相见；词组位于中后部。"
+    },
+    {
+      "id": "phrase-14",
+      "input": "音乐",
+      "expected": "YY",
+      "notes": "音乐艺术，乐读 yuè。"
+    },
+    {
+      "id": "phrase-15",
+      "input": "听音乐",
+      "expected": "TYY",
+      "notes": "动词后的音乐词组。"
+    },
+    {
+      "id": "phrase-16",
+      "input": "音乐老师",
+      "expected": "YYLS",
+      "notes": "音乐学科语义，不把乐读成快乐的 lè。"
+    },
+    {
+      "id": "phrase-17",
+      "input": "乐队",
+      "expected": "YD",
+      "notes": "演奏音乐的队伍，乐读 yuè。"
+    },
+    {
+      "id": "phrase-18",
+      "input": "乐队演出",
+      "expected": "YDYC",
+      "notes": "音乐表演语境。"
+    },
+    {
+      "id": "phrase-19",
+      "input": "乐器",
+      "expected": "YQ",
+      "notes": "用于演奏音乐的器具。"
+    },
+    {
+      "id": "phrase-20",
+      "input": "乐谱",
+      "expected": "YP",
+      "notes": "记录音乐的谱子。"
+    },
+    {
+      "id": "phrase-21",
+      "input": "乐章",
+      "expected": "YZ",
+      "notes": "音乐作品组成部分。"
+    },
+    {
+      "id": "phrase-22",
+      "input": "快乐",
+      "expected": "KL",
+      "notes": "高兴、愉快的常用语义，乐读 lè。"
+    },
+    {
+      "id": "phrase-23",
+      "input": "生日快乐",
+      "expected": "SRKL",
+      "notes": "常用祝福；快乐词组位于末尾。"
+    },
+    {
+      "id": "phrase-24",
+      "input": "欢乐",
+      "expected": "HL",
+      "notes": "喜悦语义，乐读 lè。"
+    },
+    {
+      "id": "phrase-25",
+      "input": "银行",
+      "expected": "YH",
+      "notes": "金融机构，行读 háng。"
+    },
+    {
+      "id": "phrase-26",
+      "input": "去银行",
+      "expected": "QYH",
+      "notes": "金融机构前有普通动词。"
+    },
+    {
+      "id": "phrase-27",
+      "input": "银行行长",
+      "expected": "YHHZ",
+      "notes": "相邻的银行、行长两个规则；行长指金融机构负责人，读 háng zhǎng。"
+    },
+    {
+      "id": "phrase-28",
+      "input": "行长",
+      "expected": "HZ",
+      "notes": "限定为银行负责人这一常用职务名；行读 háng，长读 zhǎng。"
+    },
+    {
+      "id": "phrase-29",
+      "input": "行业",
+      "expected": "HY",
+      "notes": "职业或产业类别，行读 háng。"
+    },
+    {
+      "id": "phrase-30",
+      "input": "行业报告",
+      "expected": "HYBG",
+      "notes": "职业或产业类别语境。"
+    },
+    {
+      "id": "phrase-31",
+      "input": "行家",
+      "expected": "HJ",
+      "notes": "熟悉某一领域的人，行读 háng。"
+    },
+    {
+      "id": "phrase-32",
+      "input": "行走",
+      "expected": "XZ",
+      "notes": "走路，行读 xíng。"
+    },
+    {
+      "id": "phrase-33",
+      "input": "行人",
+      "expected": "XR",
+      "notes": "步行的人，行读 xíng。"
+    },
+    {
+      "id": "phrase-34",
+      "input": "行李",
+      "expected": "XL",
+      "notes": "出行携带的物品，行读 xíng。"
+    },
+    {
+      "id": "phrase-35",
+      "input": "行动",
+      "expected": "XD",
+      "notes": "采取行动的常用语义，行读 xíng。"
+    },
+    {
+      "id": "phrase-36",
+      "input": "行为",
+      "expected": "XW",
+      "notes": "行为举止语义，行读 xíng。"
+    },
+    {
+      "id": "phrase-37",
+      "input": "长大",
+      "expected": "ZD",
+      "notes": "限定现代成长语义 zhǎng dà；历史 cháng dà 用法另见 needsOverride。"
+    },
+    {
+      "id": "phrase-38",
+      "input": "我长大了",
+      "expected": "WZDL",
+      "notes": "明确的成长句意，长读 zhǎng。"
+    },
+    {
+      "id": "phrase-39",
+      "input": "成长",
+      "expected": "CZ",
+      "notes": "成长、发展语义，长读 zhǎng。"
+    },
+    {
+      "id": "phrase-40",
+      "input": "长高",
+      "expected": "ZG",
+      "notes": "身高增长，长读 zhǎng。"
+    },
+    {
+      "id": "phrase-41",
+      "input": "长度",
+      "expected": "CD",
+      "notes": "空间长度，长读 cháng。"
+    },
+    {
+      "id": "phrase-42",
+      "input": "长城",
+      "expected": "CC",
+      "notes": "中国长城，长读 cháng。"
+    },
+    {
+      "id": "phrase-43",
+      "input": "万里长城",
+      "expected": "WLCC",
+      "notes": "专名长城在较长词组末尾。"
+    },
+    {
+      "id": "phrase-44",
+      "input": "长江",
+      "expected": "CJ",
+      "notes": "河流专名，长读 cháng。"
+    },
+    {
+      "id": "phrase-45",
+      "input": "长久",
+      "expected": "CJ",
+      "notes": "时间久远，长读 cháng。"
+    },
+    {
+      "id": "phrase-46",
+      "input": "长短",
+      "expected": "CD",
+      "notes": "长度的长与短，长读 cháng。"
+    },
+    {
+      "id": "phrase-47",
+      "input": "长远",
+      "expected": "CY",
+      "notes": "长期、久远的常用语义，长读 cháng。"
+    },
+    {
+      "id": "phrase-48",
+      "input": "生长",
+      "expected": "SZ",
+      "notes": "生命体增长、成长语义，长读 zhǎng。"
+    },
+    {
+      "id": "phrase-49",
+      "input": "重庆 / 音乐 / 银行",
+      "expected": "CQ / YY / YH",
+      "notes": "空格和斜杠原样保留，各片段独立匹配。"
+    },
+    {
+      "id": "phrase-50",
+      "input": "Music 音乐 2026\n生日快乐🎵",
+      "expected": "Music YY 2026\nSRKL🎵",
+      "notes": "拉丁字母大小写、空格、数字、换行和 emoji 均原样保留；emoji 是输入数据。"
+    }
+  ],
+  "needsOverride": [
+    {
+      "id": "ambiguous-chaoyang",
+      "input": "朝阳",
+      "kind": "homograph",
+      "candidates": [
+        {
+          "initials": "ZY",
+          "reading": "zhāo yáng",
+          "when": "早晨的太阳。"
+        },
+        {
+          "initials": "CY",
+          "reading": "cháo yáng",
+          "when": "向着太阳的语义；特定专名仍须核对该专名。"
+        }
+      ],
+      "notes": "脱离句意不能指定唯一答案；不要把整个字符串固定成一个读法并声称已消歧。",
+      "sourceIds": [
+        "moe-chaoyang"
+      ]
+    },
+    {
+      "id": "ambiguous-tonghang",
+      "input": "同行",
+      "kind": "homograph",
+      "candidates": [
+        {
+          "initials": "TH",
+          "reading": "tóng háng",
+          "when": "从事相同行业的人。"
+        },
+        {
+          "initials": "TX",
+          "reading": "tóng xíng",
+          "when": "一起走、相伴出行。"
+        }
+      ],
+      "notes": "两种都是常用语义，因此不加入通用最小词组规则。",
+      "sourceIds": [
+        "moe-tonghang"
+      ]
+    },
+    {
+      "id": "ambiguous-changda",
+      "input": "长大",
+      "kind": "historical-register",
+      "candidates": [
+        {
+          "initials": "ZD",
+          "reading": "zhǎng dà",
+          "when": "现代成长语义，本语料 cases 的明确约定。"
+        },
+        {
+          "initials": "CD",
+          "reading": "cháng dà",
+          "when": "历史文献中形容身形高大等用法。"
+        }
+      ],
+      "notes": "启用现代常用词规则会偏向 ZD；处理历史文本时应关闭该规则或按已知语境覆盖，不能将其宣传为所有文本唯一读音。",
+      "sourceIds": [
+        "moe-grow",
+        "moe-grow-historical"
+      ]
+    },
+    {
+      "id": "name-shan",
+      "input": "单明",
+      "kind": "illustrative-name",
+      "candidates": [
+        {
+          "initials": "SM",
+          "reading": "Shàn Míng",
+          "when": "仅当姓名本人或可信名录确认单为 Shàn 姓时。"
+        }
+      ],
+      "notes": "这是示例姓名，不指代真实个人；没有默认 expected。单字在普通词义可读 dān，不能用一般词组模式猜任意姓名，也不能把姓氏规则施加到所有单字。",
+      "sourceIds": [
+        "moe-shan"
+      ]
+    },
+    {
+      "id": "name-yue",
+      "input": "乐明",
+      "kind": "illustrative-name",
+      "candidates": [
+        {
+          "initials": "YM",
+          "reading": "Yuè Míng",
+          "when": "仅当姓名本人或可信名录确认乐为 Yuè 姓时。"
+        }
+      ],
+      "notes": "这是示例姓名，不指代真实个人；没有默认 expected。姓氏用法存在不代表任意出现的乐都读 yuè；名字中的字也应由本人确认。",
+      "sourceIds": [
+        "moe-le"
+      ]
+    },
+    {
+      "id": "name-chaoyang",
+      "input": "朝阳",
+      "kind": "personal-name",
+      "candidates": [],
+      "notes": "如果这个字符串是个人姓名，读音取决于本人，不能拿朝阳一词的释义代替身份资料。需要调用方提供已确认的覆盖值。",
+      "sourceIds": [
+        "moe-chaoyang"
+      ]
+    }
+  ],
+  "synthetic": [
+    {
+      "id": "longest-at-current-position",
+      "synthetic": true,
+      "fallback": {
+        "甲": "J",
+        "乙": "Y",
+        "丙": "B"
+      },
+      "rules": [
+        {
+          "word": "甲乙",
+          "initials": "AX"
+        },
+        {
+          "word": "甲乙丙",
+          "initials": "CDE"
+        }
+      ],
+      "input": "甲乙丙",
+      "expected": "CDE",
+      "notes": "同一开始位置选择最长规则；人为映射仅用于匹配机制。"
+    },
+    {
+      "id": "retain-default-equivalent-prefix-guard",
+      "synthetic": true,
+      "fallback": {
+        "甲": "J",
+        "乙": "Y",
+        "丙": "B"
+      },
+      "rules": [
+        {
+          "word": "甲乙",
+          "initials": "AX"
+        },
+        {
+          "word": "甲乙丙",
+          "initials": "JYB"
+        }
+      ],
+      "input": "甲乙丙",
+      "expected": "JYB",
+      "expectedIfLongRuleRemoved": "AXB",
+      "notes": "长词的结果等于逐字默认仍必须保留，否则短前缀规则改变输出。"
+    },
+    {
+      "id": "retain-default-equivalent-interior-guard",
+      "synthetic": true,
+      "fallback": {
+        "甲": "J",
+        "乙": "Y",
+        "丙": "B"
+      },
+      "rules": [
+        {
+          "word": "乙丙",
+          "initials": "CD"
+        },
+        {
+          "word": "甲乙丙",
+          "initials": "JYB"
+        }
+      ],
+      "input": "甲乙丙",
+      "expected": "JYB",
+      "expectedIfLongRuleRemoved": "JCD",
+      "notes": "默认等价长规则也会阻止内部起始位置的短规则；不能盲删。"
+    },
+    {
+      "id": "leftmost-before-later-longer",
+      "synthetic": true,
+      "fallback": {
+        "甲": "J",
+        "乙": "Y",
+        "丙": "B",
+        "丁": "D"
+      },
+      "rules": [
+        {
+          "word": "甲乙",
+          "initials": "AX"
+        },
+        {
+          "word": "乙丙丁",
+          "initials": "XYZ"
+        }
+      ],
+      "input": "甲乙丙丁",
+      "expected": "AXBD",
+      "notes": "左起当前位置最长，不是全字符串任意位置的全局最长；已消费的乙不再重叠使用。"
+    },
+    {
+      "id": "short-rule-at-end",
+      "synthetic": true,
+      "fallback": {
+        "甲": "J",
+        "乙": "Y",
+        "丙": "B"
+      },
+      "rules": [
+        {
+          "word": "甲乙",
+          "initials": "AX"
+        },
+        {
+          "word": "甲乙丙",
+          "initials": "CDE"
+        }
+      ],
+      "input": "甲乙",
+      "expected": "AX",
+      "notes": "输入到达较短词末尾时仍应命中，不能因为它是长词前缀而漏掉。"
+    },
+    {
+      "id": "literal-punctuation-boundary",
+      "synthetic": true,
+      "fallback": {
+        "甲": "J",
+        "乙": "Y"
+      },
+      "rules": [
+        {
+          "word": "甲乙",
+          "initials": "AX"
+        }
+      ],
+      "input": "甲，乙",
+      "expected": "J，Y",
+      "notes": "不跳过全角标点连接词组，标点原样保留。"
+    },
+    {
+      "id": "literal-whitespace-boundary",
+      "synthetic": true,
+      "fallback": {
+        "甲": "J",
+        "乙": "Y"
+      },
+      "rules": [
+        {
+          "word": "甲乙",
+          "initials": "AX"
+        }
+      ],
+      "input": "甲 \n乙",
+      "expected": "J \nY",
+      "notes": "不跳过空格或换行连接词组，空白原样保留。"
+    },
+    {
+      "id": "literal-emoji-boundary",
+      "synthetic": true,
+      "fallback": {
+        "甲": "J",
+        "乙": "Y"
+      },
+      "rules": [
+        {
+          "word": "甲乙",
+          "initials": "AX"
+        }
+      ],
+      "input": "甲🐈乙",
+      "expected": "J🐈Y",
+      "notes": "emoji 是测试输入数据；不跨过 emoji 连接词组，不拆坏代理对。"
+    },
+    {
+      "id": "supplementary-code-point-consumption",
+      "synthetic": true,
+      "fallback": {
+        "𠀀": "H",
+        "甲": "J",
+        "乙": "Y"
+      },
+      "rules": [
+        {
+          "word": "𠀀甲",
+          "initials": "QR"
+        }
+      ],
+      "input": "𠀀甲乙",
+      "expected": "QRY",
+      "notes": "𠀀甲包含两个 Unicode 码点、三个 UTF-16 码元；规则按码点消费后仍正确处理乙。H、QR 是人为测试映射，不宣称这个字的读音。"
+    }
+  ]
+}
