@@ -1,12 +1,12 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/yuxino/pyfl/main/docs/pyfl-logo.png" width="112" alt="pyfl short-haired witch">
   <h1>pyfl</h1>
-  <p>Turn Chinese text into searchable initials.</p>
+  <p>Convert Chinese text to pinyin initials for search.</p>
   <p><a href="https://pyfl.yuxino.cn">Try it online</a> · <a href="https://www.npmjs.com/package/pyfl">npm</a> · <a href="https://github.com/yuxino/pyfl/issues">Report an issue</a></p>
   <p><a href="https://github.com/yuxino/pyfl/blob/main/README.md">简体中文</a> · <strong>English</strong></p>
 </div>
 
-A small pinyin-initials utility for Chinese titles, contacts, and search indexes. Conversion runs locally with no runtime dependencies. `2.1.0` adds optional modern dictionaries, phrase rules, and candidate search while preserving the original entry point.
+Pyfl is a JavaScript / TypeScript library that converts Chinese text such as 你好 to pinyin initials such as `NH`, for use in titles, contact lists, and search indexes. Conversion runs locally with no runtime dependencies. Modern entries support phrase rules and searches across alternative pronunciations. The default entry keeps the original dictionary for existing projects.
 
 ## Install
 
@@ -25,7 +25,7 @@ pyfl("你好，世界"); // "NH，SJ"
 pyfl("重庆");       // "ZQ", unchanged
 ```
 
-Use the modern 8,105-character inventory with 36 phrase rules:
+Available since 2.1.0, the modern entry uses an 8,105-character inventory with 36 phrase rules:
 
 ```js
 import modern from "pyfl/modern";

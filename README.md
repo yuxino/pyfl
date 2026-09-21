@@ -1,12 +1,12 @@
 <div align="center">
   <img src="https://raw.githubusercontent.com/yuxino/pyfl/main/docs/pyfl-logo.png" width="112" alt="pyfl 短发小魔女">
   <h1>pyfl</h1>
-  <p>把中文变成好找的首字母。</p>
+  <p>汉字转拼音首字母，支持中文搜索。</p>
   <p><a href="https://pyfl.yuxino.cn">在线试一试</a> · <a href="https://www.npmjs.com/package/pyfl">npm</a> · <a href="https://github.com/yuxino/pyfl/issues">反馈问题</a></p>
   <p><strong>简体中文</strong> · <a href="https://github.com/yuxino/pyfl/blob/main/README_en.md">English</a></p>
 </div>
 
-轻量的拼音首字母工具，适合中文标题、通讯录和搜索索引。本地转换，无运行时依赖。`2.1.0` 新增可选的现代字表、词组规则和多读音搜索，原有入口保持兼容。
+Pyfl 是一个 JavaScript / TypeScript 库，可以把「你好」转换为 `NH`，用于标题、通讯录和搜索索引。转换在本地完成，没有运行时依赖。现代入口支持词组规则和多读音搜索；默认入口保留原有字表，已有项目可以继续使用。
 
 ## 安装
 
@@ -25,7 +25,7 @@ pyfl("你好，世界"); // "NH，SJ"
 pyfl("重庆");       // "ZQ"，保持原结果
 ```
 
-现代入口使用 8,105 字的常用表和 36 条词组规则：
+从 2.1.0 起，现代入口提供 8,105 字的常用表和 36 条词组规则：
 
 ```js
 import modern from "pyfl/modern";
