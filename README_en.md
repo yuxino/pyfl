@@ -4,6 +4,13 @@
   <p>Convert Chinese text to pinyin initials for search.</p>
   <p><a href="https://pyfl.yuxino.cn">Try it online</a> · <a href="https://www.npmjs.com/package/pyfl">npm</a> · <a href="https://github.com/yuxino/pyfl/issues">Report an issue</a></p>
   <p><a href="https://github.com/yuxino/pyfl/blob/main/README.md">简体中文</a> · <strong>English</strong></p>
+  <p>
+    <a href="https://www.npmjs.com/package/pyfl"><img src="https://img.shields.io/npm/v/pyfl?logo=npm&amp;logoColor=white&amp;style=flat-square&amp;labelColor=202020&amp;color=555" alt="npm version"></a>
+    <a href="https://www.npmjs.com/package/pyfl"><img src="https://img.shields.io/npm/dm/pyfl?label=downloads%2Fmonth&amp;style=flat-square&amp;labelColor=202020&amp;color=555" alt="npm downloads per month"></a>
+    <a href="types/index.d.ts"><img src="https://img.shields.io/badge/TypeScript-types%20included-555?style=flat-square&amp;labelColor=202020&amp;color=555" alt="TypeScript types included"></a>
+    <a href="https://github.com/yuxino/pyfl/actions/workflows/ci.yml?query=branch%3Amain"><img src="https://img.shields.io/github/actions/workflow/status/yuxino/pyfl/ci.yml?branch=main&amp;event=push&amp;label=CI&amp;style=flat-square&amp;labelColor=202020&amp;color=555" alt="CI status on main"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/github/license/yuxino/pyfl?style=flat-square&amp;labelColor=202020&amp;color=555" alt="MIT license"></a>
+  </p>
 </div>
 
 Pyfl is a JavaScript / TypeScript library that converts Chinese text such as 你好 to pinyin initials such as `NH`, for use in titles, contact lists, and search indexes. Conversion runs locally with no runtime dependencies. Modern entries support phrase rules and searches across alternative pronunciations. The default entry keeps the original dictionary for existing projects.

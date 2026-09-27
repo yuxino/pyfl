@@ -4,6 +4,13 @@
   <p>汉字转拼音首字母，支持中文搜索。</p>
   <p><a href="https://pyfl.yuxino.cn">在线试一试</a> · <a href="https://www.npmjs.com/package/pyfl">npm</a> · <a href="https://github.com/yuxino/pyfl/issues">反馈问题</a></p>
   <p><strong>简体中文</strong> · <a href="https://github.com/yuxino/pyfl/blob/main/README_en.md">English</a></p>
+  <p>
+    <a href="https://www.npmjs.com/package/pyfl"><img src="https://img.shields.io/npm/v/pyfl?logo=npm&amp;logoColor=white&amp;style=flat-square&amp;labelColor=202020&amp;color=555" alt="npm 版本"></a>
+    <a href="https://www.npmjs.com/package/pyfl"><img src="https://img.shields.io/npm/dm/pyfl?label=downloads%2Fmonth&amp;style=flat-square&amp;labelColor=202020&amp;color=555" alt="npm 每月下载次数"></a>
+    <a href="types/index.d.ts"><img src="https://img.shields.io/badge/TypeScript-types%20included-555?style=flat-square&amp;labelColor=202020&amp;color=555" alt="内置 TypeScript 类型"></a>
+    <a href="https://github.com/yuxino/pyfl/actions/workflows/ci.yml?query=branch%3Amain"><img src="https://img.shields.io/github/actions/workflow/status/yuxino/pyfl/ci.yml?branch=main&amp;event=push&amp;label=CI&amp;style=flat-square&amp;labelColor=202020&amp;color=555" alt="main 分支 CI 状态"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/github/license/yuxino/pyfl?style=flat-square&amp;labelColor=202020&amp;color=555" alt="MIT 许可证"></a>
+  </p>
 </div>
 
 Pyfl 是一个 JavaScript / TypeScript 库，可以把「你好」转换为 `NH`，用于标题、通讯录和搜索索引。转换在本地完成，没有运行时依赖。现代入口支持词组规则和多读音搜索；默认入口保留原有字表，已有项目可以继续使用。
