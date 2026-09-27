@@ -5,11 +5,11 @@
   <p><a href="https://pyfl.yuxino.cn">Try it online</a> · <a href="https://www.npmjs.com/package/pyfl">npm</a> · <a href="https://github.com/yuxino/pyfl/issues">Report an issue</a></p>
   <p><a href="https://github.com/yuxino/pyfl/blob/main/README.md">简体中文</a> · <strong>English</strong></p>
   <p>
-    <a href="https://www.npmjs.com/package/pyfl"><img src="https://img.shields.io/npm/v/pyfl?style=flat&amp;labelColor=CB3837&amp;color=C7B7F4&amp;logo=npm&amp;logoColor=white" alt="npm version"></a>
-    <a href="https://www.npmjs.com/package/pyfl"><img src="https://img.shields.io/npm/dm/pyfl?style=flat&amp;labelColor=CB3837&amp;color=C7B7F4&amp;logo=npm&amp;logoColor=white&amp;label=downloads%2Fmonth" alt="npm downloads per month"></a>
-    <a href="types/index.d.ts"><img src="https://img.shields.io/badge/TypeScript-included-3178C6?style=flat&amp;labelColor=3178C6&amp;color=C7B7F4&amp;logo=typescript&amp;logoColor=white" alt="TypeScript types included"></a>
-    <a href="https://github.com/yuxino/pyfl/actions/workflows/ci.yml?query=branch%3Amain"><img src="https://img.shields.io/github/actions/workflow/status/yuxino/pyfl/ci.yml?style=flat&amp;labelColor=2088FF&amp;logo=githubactions&amp;logoColor=white&amp;branch=main&amp;event=push&amp;label=CI" alt="CI status on main"></a>
-    <a href="LICENSE"><img src="https://img.shields.io/github/license/yuxino/pyfl?style=flat&amp;labelColor=584B8E&amp;color=C7B7F4&amp;logo=opensourceinitiative&amp;logoColor=white" alt="MIT license"></a>
+    <a href="https://www.npmjs.com/package/pyfl"><img src="https://img.shields.io/npm/v/pyfl?style=flat&amp;logo=npm&amp;logoColor=white" alt="npm version"></a>
+    <a href="https://www.npmjs.com/package/pyfl"><img src="https://img.shields.io/npm/dm/pyfl?style=flat&amp;logo=npm&amp;logoColor=white&amp;label=downloads%2Fmonth" alt="npm downloads per month"></a>
+    <a href="types/index.d.ts"><img src="https://img.shields.io/badge/TypeScript-included-3178C6?style=flat&amp;logo=typescript&amp;logoColor=white" alt="TypeScript types included"></a>
+    <a href="https://github.com/yuxino/pyfl/actions/workflows/ci.yml?query=branch%3Amain"><img src="https://img.shields.io/github/actions/workflow/status/yuxino/pyfl/ci.yml?style=flat&amp;logo=githubactions&amp;logoColor=white&amp;branch=main&amp;event=push&amp;label=CI" alt="CI status on main"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/github/license/yuxino/pyfl?style=flat&amp;logo=opensourceinitiative&amp;logoColor=white" alt="MIT license"></a>
   </p>
 </div>
 
