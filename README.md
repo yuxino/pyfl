@@ -5,11 +5,11 @@
   <p><a href="https://pyfl.yuxino.cn">在线试一试</a> · <a href="https://www.npmjs.com/package/pyfl">npm</a> · <a href="https://github.com/yuxino/pyfl/issues">反馈问题</a></p>
   <p><strong>简体中文</strong> · <a href="https://github.com/yuxino/pyfl/blob/main/README_en.md">English</a></p>
   <p>
-    <a href="https://www.npmjs.com/package/pyfl"><img src="https://img.shields.io/npm/v/pyfl?logo=npm&amp;logoColor=white&amp;style=flat-square&amp;labelColor=202020&amp;color=555" alt="npm 版本"></a>
-    <a href="https://www.npmjs.com/package/pyfl"><img src="https://img.shields.io/npm/dm/pyfl?label=downloads%2Fmonth&amp;style=flat-square&amp;labelColor=202020&amp;color=555" alt="npm 每月下载次数"></a>
-    <a href="types/index.d.ts"><img src="https://img.shields.io/badge/TypeScript-types%20included-555?style=flat-square&amp;labelColor=202020&amp;color=555" alt="内置 TypeScript 类型"></a>
-    <a href="https://github.com/yuxino/pyfl/actions/workflows/ci.yml?query=branch%3Amain"><img src="https://img.shields.io/github/actions/workflow/status/yuxino/pyfl/ci.yml?branch=main&amp;event=push&amp;label=CI&amp;style=flat-square&amp;labelColor=202020&amp;color=555" alt="main 分支 CI 状态"></a>
-    <a href="LICENSE"><img src="https://img.shields.io/github/license/yuxino/pyfl?style=flat-square&amp;labelColor=202020&amp;color=555" alt="MIT 许可证"></a>
+    <a href="https://www.npmjs.com/package/pyfl"><img src="https://img.shields.io/npm/v/pyfl?style=flat&amp;labelColor=CB3837&amp;color=C7B7F4&amp;logo=npm&amp;logoColor=white" alt="npm 版本"></a>
+    <a href="https://www.npmjs.com/package/pyfl"><img src="https://img.shields.io/npm/dm/pyfl?style=flat&amp;labelColor=CB3837&amp;color=C7B7F4&amp;logo=npm&amp;logoColor=white&amp;label=downloads%2Fmonth" alt="npm 每月下载量"></a>
+    <a href="types/index.d.ts"><img src="https://img.shields.io/badge/TypeScript-included-3178C6?style=flat&amp;labelColor=3178C6&amp;color=C7B7F4&amp;logo=typescript&amp;logoColor=white" alt="内置 TypeScript 类型"></a>
+    <a href="https://github.com/yuxino/pyfl/actions/workflows/ci.yml?query=branch%3Amain"><img src="https://img.shields.io/github/actions/workflow/status/yuxino/pyfl/ci.yml?style=flat&amp;labelColor=2088FF&amp;logo=githubactions&amp;logoColor=white&amp;branch=main&amp;event=push&amp;label=CI" alt="main 分支 CI 状态"></a>
+    <a href="LICENSE"><img src="https://img.shields.io/github/license/yuxino/pyfl?style=flat&amp;labelColor=584B8E&amp;color=C7B7F4&amp;logo=opensourceinitiative&amp;logoColor=white" alt="MIT 许可证"></a>
   </p>
 </div>
 
